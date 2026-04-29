@@ -16,6 +16,7 @@
       background-size: cover;
       background-color: #b98b8f;
       min-height: 100vh;
+      overflow: hidden;
     }
 
     .overlay {
@@ -25,14 +26,57 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    /* 🔥 CARD SLIGHTLY BIGGER */
+    .flowers {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .flower {
+      position: absolute;
+      top: -40px;
+      font-size: 18px;
+      opacity: 0.75;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    .flower:nth-child(1) { left: 8%; animation-duration: 10s; animation-delay: 0s; }
+    .flower:nth-child(2) { left: 18%; animation-duration: 13s; animation-delay: 2s; font-size: 14px; }
+    .flower:nth-child(3) { left: 28%; animation-duration: 11s; animation-delay: 4s; font-size: 20px; }
+    .flower:nth-child(4) { left: 40%; animation-duration: 15s; animation-delay: 1s; font-size: 15px; }
+    .flower:nth-child(5) { left: 52%; animation-duration: 12s; animation-delay: 3s; font-size: 19px; }
+    .flower:nth-child(6) { left: 64%; animation-duration: 14s; animation-delay: 5s; font-size: 14px; }
+    .flower:nth-child(7) { left: 76%; animation-duration: 10s; animation-delay: 2.5s; font-size: 20px; }
+    .flower:nth-child(8) { left: 88%; animation-duration: 16s; animation-delay: 0.5s; font-size: 16px; }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-60px) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
     .card-container {
       position: relative;
       width: 460px;
       max-width: 97vw;
       animation: floatCard 4s ease-in-out infinite;
+      z-index: 2;
     }
 
     .card-img {
@@ -54,7 +98,6 @@
       align-items: center;
     }
 
-    /* 🔥 TITLE SPLIT INTO TWO LINES */
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: 26px;
@@ -67,8 +110,8 @@
 
     .names {
       font-family: 'Allura', cursive;
-      font-size: 24px;
-      line-height: 1.4;
+      font-size: 30px;
+      line-height: 1.25;
       margin-bottom: 15px;
       text-shadow: 0 3px 8px rgba(0,0,0,0.4);
     }
@@ -106,10 +149,9 @@
       font-size: 8px;
     }
 
-    /* 🔥 BUTTON FITS TEXT EXACTLY */
     .btn {
       margin-top: 8px;
-      padding: 2px 4px; /* almost no padding */
+      padding: 2px 4px;
       border: 1px solid white;
       background: transparent;
       color: white;
@@ -136,6 +178,17 @@
 <body>
 
 <div class="overlay">
+
+  <div class="flowers">
+    <div class="flower">🌸</div>
+    <div class="flower">🌺</div>
+    <div class="flower">🌸</div>
+    <div class="flower">🌷</div>
+    <div class="flower">🌸</div>
+    <div class="flower">🌺</div>
+    <div class="flower">🌸</div>
+    <div class="flower">🌷</div>
+  </div>
 
   <div class="card-container">
 
@@ -178,12 +231,14 @@
       </div>
 
       <div class="details">
-         Friday, May 22, 2026<br>
-         4:00 PM<br>
-         Le Café de l'Horloge, Rigaud
+        📅 Friday, May 22, 2026<br>
+        ⏰ 4:00 PM<br>
+        📍 Le Café de l'Horloge, Rigaud
       </div>
 
-      <a class="btn" href="#" target="_blank">
+      <a class="btn"
+         href="https://www.google.com/maps/search/?api=1&query=Le+Cafe+de+l%27Horloge+Rigaud"
+         target="_blank">
         View Location
       </a>
 
@@ -200,6 +255,11 @@ function updateCountdown() {
   const now = new Date().getTime();
   const distance = weddingDate - now;
 
+  if (distance < 0) {
+    document.querySelector(".countdown").innerHTML = "Today is the day!";
+    return;
+  }
+
   const d = Math.floor(distance / (1000*60*60*24));
   const h = Math.floor((distance/(1000*60*60))%24);
   const m = Math.floor((distance/(1000*60))%60);
@@ -211,6 +271,7 @@ function updateCountdown() {
   document.getElementById("seconds").innerText = s;
 }
 
+updateCountdown();
 setInterval(updateCountdown,1000);
 </script>
 
