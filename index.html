@@ -16,7 +16,7 @@
 
     .overlay {
       min-height: 100vh;
-      background: rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.4); /* darker background */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -24,13 +24,17 @@
 
     .card-container {
       position: relative;
-      width: 380px;
+      width: 360px;
       max-width: 90%;
+      transform: scale(0.95);
     }
 
     .card-img {
       width: 100%;
       display: block;
+
+      /* 🔥 THIS IS THE KEY FIX */
+      filter: drop-shadow(0 25px 40px rgba(0,0,0,0.5));
     }
 
     .text {
@@ -39,7 +43,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      padding: 40px 30px;
+      padding: 45px 30px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -49,7 +53,7 @@
     h1 {
       font-family: 'Great Vibes', cursive;
       color: white;
-      font-size: 42px;
+      font-size: 40px;
       margin-bottom: 10px;
     }
 
@@ -61,9 +65,10 @@
     }
 
     .details {
-      font-size: 15px;
+      font-size: 14px;
       color: white;
       margin: 10px 0;
+      line-height: 1.6;
     }
 
     .btn {
@@ -88,10 +93,10 @@
 
     <div class="card-container">
 
-      <!-- YOUR IMAGE -->
+      <!-- RED BOARD -->
       <img src="card.png" class="card-img">
 
-      <!-- TEXT ON TOP -->
+      <!-- TEXT -->
       <div class="text">
 
         <h1>Nikkah Invitation</h1>
