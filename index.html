@@ -5,21 +5,20 @@
   <title>Nikkah Invitation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: url('https://images.unsplash.com/photo-1520857014576-2c4f4c972b57') no-repeat center center/cover;
-      color: #333;
-      text-align: center;
+      background: url('https://i.pinimg.com/736x/57/85/78/5785785da9cddfa53c6b7223dbdcb42e.jpg') no-repeat center center/cover;
     }
 
     .overlay {
-      background: rgba(255, 255, 255, 0.85);
       min-height: 100vh;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(6px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -28,23 +27,24 @@
 
     .card {
       max-width: 500px;
-      background: white;
       padding: 30px;
       border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-      animation: fadeIn 1.5s ease;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      text-align: center;
+      animation: fadeUp 1.5s ease;
     }
 
     h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Great Vibes', cursive;
+      font-size: 55px;
       color: #b76e79;
-      font-size: 36px;
       margin-bottom: 10px;
     }
 
     .names {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
+      font-size: 26px;
       margin: 20px 0;
       font-weight: bold;
     }
@@ -70,21 +70,15 @@
       background: #9a5a63;
     }
 
-    @keyframes fadeIn {
+    @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-    footer {
-      margin-top: 15px;
-      font-size: 12px;
-      color: #777;
     }
   </style>
 </head>
@@ -101,7 +95,7 @@
       </div>
 
       <div class="details">
-        You are warmly invited to celebrate our Nikkah ceremony
+        You are warmly invited to our Nikkah ceremony
       </div>
 
       <div class="details">
@@ -118,10 +112,6 @@
          target="_blank">
         View Location
       </a>
-
-      <footer>
-        We look forward to celebrating with you ❤️
-      </footer>
 
     </div>
   </div>
