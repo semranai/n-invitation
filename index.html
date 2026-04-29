@@ -27,10 +27,11 @@
       justify-content: center;
     }
 
+    /* 🔥 CARD SLIGHTLY BIGGER */
     .card-container {
       position: relative;
-      width: 420px;
-      max-width: 95vw;
+      width: 460px;
+      max-width: 97vw;
       animation: floatCard 4s ease-in-out infinite;
     }
 
@@ -50,19 +51,20 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
     }
 
-    /* 🔥 CLEAN TITLE (NOT CURSIVE) */
+    /* 🔥 TITLE SPLIT INTO TWO LINES */
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: 26px;
       letter-spacing: 2px;
       margin-bottom: 12px;
       text-transform: uppercase;
+      line-height: 1.2;
       text-shadow: 0 3px 8px rgba(0,0,0,0.4);
     }
 
-    /* CURSIVE NAMES */
     .names {
       font-family: 'Allura', cursive;
       font-size: 24px;
@@ -81,7 +83,6 @@
       margin-bottom: 10px;
     }
 
-    /* SMALL CLEAN COUNTDOWN */
     .countdown {
       display: flex;
       gap: 6px;
@@ -105,16 +106,18 @@
       font-size: 8px;
     }
 
-    /* 🔥 NEW BUTTON STYLE */
+    /* 🔥 BUTTON FITS TEXT EXACTLY */
     .btn {
-      margin-top: 10px;
-      padding: 6px 14px; /* smaller */
+      margin-top: 8px;
+      padding: 2px 4px; /* almost no padding */
       border: 1px solid white;
-      background: transparent; /* transparent */
+      background: transparent;
       color: white;
-      border-radius: 20px;
+      border-radius: 6px;
       text-decoration: none;
       font-size: 11px;
+      line-height: 1;
+      width: fit-content;
       display: inline-block;
     }
 
@@ -140,7 +143,10 @@
 
     <div class="text">
 
-      <h1>NIKKAH INVITATION</h1>
+      <h1>
+        NIKKAH<br>
+        INVITATION
+      </h1>
 
       <div class="names">
         Aisha Semran<br>
@@ -172,9 +178,9 @@
       </div>
 
       <div class="details">
-        📅 Friday, May 22, 2026<br>
-        ⏰ 4:00 PM<br>
-        📍 Le Café de l'Horloge, Rigaud
+         Friday, May 22, 2026<br>
+         4:00 PM<br>
+         Le Café de l'Horloge, Rigaud
       </div>
 
       <a class="btn" href="#" target="_blank">
