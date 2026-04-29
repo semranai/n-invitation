@@ -5,8 +5,7 @@
   <title>Nikkah Invitation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600&family=Poppins&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -17,67 +16,135 @@
 
     .overlay {
       min-height: 100vh;
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(190, 145, 150, 0.55);
       backdrop-filter: blur(6px);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 25px;
     }
 
-    .card {
-      max-width: 500px;
-      padding: 30px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    .invitation {
+      width: 390px;
+      max-width: 95%;
+      min-height: 610px;
+      background: #fff7f3;
+      color: #3b2b2b;
       text-align: center;
-      animation: fadeUp 1.5s ease;
+      padding: 55px 35px;
+      position: relative;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.25);
+
+      /* Fancy curvy shape */
+      border-radius: 
+        48% 48% 18% 18% / 
+        12% 12% 8% 8%;
+
+      clip-path: polygon(
+        50% 0%,
+        62% 8%,
+        83% 7%,
+        88% 20%,
+        97% 32%,
+        90% 48%,
+        96% 64%,
+        85% 78%,
+        80% 94%,
+        62% 92%,
+        50% 100%,
+        38% 92%,
+        20% 94%,
+        15% 78%,
+        4% 64%,
+        10% 48%,
+        3% 32%,
+        12% 20%,
+        17% 7%,
+        38% 8%
+      );
+    }
+
+    .invitation::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 3px double #b76e79;
+      clip-path: inherit;
+      pointer-events: none;
+    }
+
+    .invitation::after {
+      content: "❦";
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #b76e79;
+      font-size: 34px;
     }
 
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 55px;
       color: #b76e79;
-      margin-bottom: 10px;
+      font-size: 55px;
+      font-weight: 400;
+      margin: 45px 0 20px;
+      line-height: 1;
+    }
+
+    .divider {
+      color: #b76e79;
+      font-size: 24px;
+      margin: 15px 0;
     }
 
     .names {
-      font-size: 26px;
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 600;
       margin: 20px 0;
-      font-weight: bold;
+    }
+
+    .message {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 18px 0;
     }
 
     .details {
-      margin: 15px 0;
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.9;
+      margin: 20px 0;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
+      margin-top: 15px;
+      padding: 12px 28px;
       background: #b76e79;
       color: white;
       text-decoration: none;
-      border-radius: 25px;
-      transition: 0.3s;
+      border-radius: 30px;
+      font-size: 15px;
     }
 
     .btn:hover {
-      background: #9a5a63;
+      background: #9b5964;
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+    @media (max-width: 480px) {
+      .invitation {
+        width: 340px;
+        min-height: 560px;
+        padding: 45px 25px;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+
+      h1 {
+        font-size: 45px;
+      }
+
+      .names {
+        font-size: 23px;
       }
     }
   </style>
@@ -86,34 +153,39 @@
 <body>
 
   <div class="overlay">
-    <div class="card">
+
+    <div class="invitation">
 
       <h1>Nikkah Invitation</h1>
 
+      <div class="divider">❦</div>
+
       <div class="names">
-        Mohammad & [Bride Name]
+        Aisha Semran<br>
+        &
+        <br>Mohammad Fouji
       </div>
 
-      <div class="details">
+      <div class="message">
         You are warmly invited to our Nikkah ceremony
       </div>
 
-      <div class="details">
-        📅 Friday, May 22, 2026 <br>
-        ⏰ 4:00 PM
-      </div>
+      <div class="divider">❦</div>
 
       <div class="details">
+        📅 Friday, May 22, 2026 <br>
+        ⏰ 4:00 PM <br>
         📍 Le Café de l'Horloge, Rigaud
       </div>
 
-      <a class="btn" 
-         href="https://www.google.com/maps/search/?api=1&query=Le+Cafe+de+l'Horloge+Rigaud" 
+      <a class="btn"
+         href="https://www.google.com/maps/search/?api=1&query=Le+Cafe+de+l'Horloge+Rigaud"
          target="_blank">
         View Location
       </a>
 
     </div>
+
   </div>
 
 </body>
