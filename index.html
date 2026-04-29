@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Allura&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Allura&family=Playfair+Display:wght@500;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: url('background2.jpg') no-repeat center center;
-      background-size: cover;
+      background: url('background.png') no-repeat center center;
+      background-size: contain;
       background-color: #b98b8f;
       min-height: 100vh;
     }
@@ -52,20 +52,22 @@
       justify-content: center;
     }
 
+    /* 🔥 CLEAN TITLE (NOT CURSIVE) */
     h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 40px;
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      letter-spacing: 2px;
       margin-bottom: 12px;
+      text-transform: uppercase;
       text-shadow: 0 3px 8px rgba(0,0,0,0.4);
     }
 
-    /* 🔥 NEW CURSIVE STYLE FOR NAMES */
+    /* CURSIVE NAMES */
     .names {
       font-family: 'Allura', cursive;
-      font-size: 24px; /* smaller */
+      font-size: 24px;
       line-height: 1.4;
       margin-bottom: 15px;
-      letter-spacing: 1px;
       text-shadow: 0 3px 8px rgba(0,0,0,0.4);
     }
 
@@ -79,7 +81,7 @@
       margin-bottom: 10px;
     }
 
-    /* 🔥 SMALLER COUNTDOWN */
+    /* SMALL CLEAN COUNTDOWN */
     .countdown {
       display: flex;
       gap: 6px;
@@ -91,11 +93,11 @@
       background: rgba(255,255,255,0.2);
       border-radius: 8px;
       padding: 5px 6px;
-      min-width: 48px;
+      min-width: 45px;
     }
 
     .time-box span {
-      font-size: 14px; /* smaller */
+      font-size: 14px;
       font-weight: bold;
     }
 
@@ -103,14 +105,21 @@
       font-size: 8px;
     }
 
+    /* 🔥 NEW BUTTON STYLE */
     .btn {
       margin-top: 10px;
-      padding: 10px 24px;
-      background: white;
-      color: #8b1a1a;
-      border-radius: 25px;
+      padding: 6px 14px; /* smaller */
+      border: 1px solid white;
+      background: transparent; /* transparent */
+      color: white;
+      border-radius: 20px;
       text-decoration: none;
-      font-size: 13px;
+      font-size: 11px;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: rgba(255,255,255,0.2);
     }
 
     @keyframes floatCard {
@@ -131,7 +140,7 @@
 
     <div class="text">
 
-      <h1>Nikkah Invitation</h1>
+      <h1>NIKKAH INVITATION</h1>
 
       <div class="names">
         Aisha Semran<br>
@@ -146,19 +155,19 @@
       <div class="countdown">
         <div class="time-box">
           <span id="days">00</span>
-          <small>Days</small>
+          <small>D</small>
         </div>
         <div class="time-box">
           <span id="hours">00</span>
-          <small>Hr</small>
+          <small>H</small>
         </div>
         <div class="time-box">
           <span id="minutes">00</span>
-          <small>Min</small>
+          <small>M</small>
         </div>
         <div class="time-box">
           <span id="seconds">00</span>
-          <small>Sec</small>
+          <small>S</small>
         </div>
       </div>
 
@@ -168,7 +177,9 @@
         📍 Le Café de l'Horloge, Rigaud
       </div>
 
-      <a class="btn" href="#" target="_blank">View Location</a>
+      <a class="btn" href="#" target="_blank">
+        View Location
+      </a>
 
     </div>
 
