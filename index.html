@@ -5,147 +5,79 @@
   <title>Nikkah Invitation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600&family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: url('https://i.pinimg.com/736x/57/85/78/5785785da9cddfa53c6b7223dbdcb42e.jpg') no-repeat center center/cover;
+      background: url('background.jpg') no-repeat center center/cover;
     }
 
     .overlay {
       min-height: 100vh;
-      background: rgba(190, 145, 150, 0.55);
-      backdrop-filter: blur(6px);
+      background: rgba(0,0,0,0.3);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 25px;
     }
 
-    .invitation {
-      width: 390px;
-      max-width: 95%;
-      min-height: 610px;
-      background: #fff7f3;
-      color: #3b2b2b;
-      text-align: center;
-      padding: 55px 35px;
+    .card-container {
       position: relative;
-      box-shadow: 0 25px 45px rgba(0,0,0,0.25);
-
-      /* Fancy curvy shape */
-      border-radius: 
-        48% 48% 18% 18% / 
-        12% 12% 8% 8%;
-
-      clip-path: polygon(
-        50% 0%,
-        62% 8%,
-        83% 7%,
-        88% 20%,
-        97% 32%,
-        90% 48%,
-        96% 64%,
-        85% 78%,
-        80% 94%,
-        62% 92%,
-        50% 100%,
-        38% 92%,
-        20% 94%,
-        15% 78%,
-        4% 64%,
-        10% 48%,
-        3% 32%,
-        12% 20%,
-        17% 7%,
-        38% 8%
-      );
+      width: 380px;
+      max-width: 90%;
     }
 
-    .invitation::before {
-      content: "";
-      position: absolute;
-      inset: 18px;
-      border: 3px double #b76e79;
-      clip-path: inherit;
-      pointer-events: none;
+    .card-img {
+      width: 100%;
+      display: block;
     }
 
-    .invitation::after {
-      content: "❦";
+    .text {
       position: absolute;
-      top: 28px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #b76e79;
-      font-size: 34px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 40px 30px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     h1 {
       font-family: 'Great Vibes', cursive;
-      color: #b76e79;
-      font-size: 55px;
-      font-weight: 400;
-      margin: 45px 0 20px;
-      line-height: 1;
-    }
-
-    .divider {
-      color: #b76e79;
-      font-size: 24px;
-      margin: 15px 0;
+      color: white;
+      font-size: 42px;
+      margin-bottom: 10px;
     }
 
     .names {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      font-weight: 600;
-      margin: 20px 0;
-    }
-
-    .message {
-      font-size: 16px;
-      line-height: 1.6;
-      margin: 18px 0;
+      font-size: 22px;
+      color: white;
+      font-weight: bold;
+      margin: 15px 0;
     }
 
     .details {
-      font-size: 16px;
-      line-height: 1.9;
-      margin: 20px 0;
+      font-size: 15px;
+      color: white;
+      margin: 10px 0;
     }
 
     .btn {
-      display: inline-block;
       margin-top: 15px;
-      padding: 12px 28px;
-      background: #b76e79;
-      color: white;
+      padding: 10px 20px;
+      background: white;
+      color: #b76e79;
       text-decoration: none;
-      border-radius: 30px;
-      font-size: 15px;
+      border-radius: 20px;
+      font-size: 14px;
     }
 
     .btn:hover {
-      background: #9b5964;
-    }
-
-    @media (max-width: 480px) {
-      .invitation {
-        width: 340px;
-        min-height: 560px;
-        padding: 45px 25px;
-      }
-
-      h1 {
-        font-size: 45px;
-      }
-
-      .names {
-        font-size: 23px;
-      }
+      background: #eee;
     }
   </style>
 </head>
@@ -154,35 +86,37 @@
 
   <div class="overlay">
 
-    <div class="invitation">
+    <div class="card-container">
 
-      <h1>Nikkah Invitation</h1>
+      <!-- YOUR IMAGE -->
+      <img src="card.png" class="card-img">
 
-      <div class="divider">❦</div>
+      <!-- TEXT ON TOP -->
+      <div class="text">
 
-      <div class="names">
-        Aisha Semran<br>
-        &
-        <br>Mohammad Fouji
+        <h1>Nikkah Invitation</h1>
+
+        <div class="names">
+          Aisha Semran<br>&<br>Mohammad Fouji
+        </div>
+
+        <div class="details">
+          You are warmly invited to our Nikkah ceremony
+        </div>
+
+        <div class="details">
+          📅 Friday, May 22, 2026 <br>
+          ⏰ 4:00 PM <br>
+          📍 Le Café de l'Horloge, Rigaud
+        </div>
+
+        <a class="btn"
+           href="https://www.google.com/maps/search/?api=1&query=Le+Cafe+de+l'Horloge+Rigaud"
+           target="_blank">
+          View Location
+        </a>
+
       </div>
-
-      <div class="message">
-        You are warmly invited to our Nikkah ceremony
-      </div>
-
-      <div class="divider">❦</div>
-
-      <div class="details">
-        📅 Friday, May 22, 2026 <br>
-        ⏰ 4:00 PM <br>
-        📍 Le Café de l'Horloge, Rigaud
-      </div>
-
-      <a class="btn"
-         href="https://www.google.com/maps/search/?api=1&query=Le+Cafe+de+l'Horloge+Rigaud"
-         target="_blank">
-        View Location
-      </a>
 
     </div>
 
