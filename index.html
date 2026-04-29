@@ -5,17 +5,16 @@
   <title>Nikkah Invitation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Allura&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
+      background: url('background2.jpg') no-repeat center center;
+      background-size: cover;
       background-color: #b98b8f;
-      background-image: url('background2.jpg');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: contain;
       min-height: 100vh;
     }
 
@@ -26,20 +25,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 25px;
     }
 
     .card-container {
       position: relative;
-      width: 430px;
+      width: 420px;
       max-width: 95vw;
       animation: floatCard 4s ease-in-out infinite;
     }
 
     .card-img {
       width: 100%;
-      display: block;
-      filter: drop-shadow(0 35px 35px rgba(0,0,0,0.45));
+      filter: drop-shadow(0 30px 35px rgba(0,0,0,0.4));
     }
 
     .text {
@@ -52,211 +49,153 @@
       text-align: center;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      pointer-events: none;
     }
 
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 41px;
-      line-height: 0.95;
-      margin: 0 0 14px;
-      font-weight: 400;
-      text-shadow: 0 3px 8px rgba(0,0,0,0.45);
+      font-size: 40px;
+      margin-bottom: 12px;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.4);
     }
 
+    /* 🔥 NEW CURSIVE STYLE FOR NAMES */
     .names {
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 1.35;
-      margin-bottom: 14px;
-      text-shadow: 0 3px 8px rgba(0,0,0,0.45);
+      font-family: 'Allura', cursive;
+      font-size: 24px; /* smaller */
+      line-height: 1.4;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.4);
     }
 
     .message {
       font-size: 13px;
-      line-height: 1.5;
-      margin-bottom: 14px;
-      max-width: 280px;
-      text-shadow: 0 3px 8px rgba(0,0,0,0.45);
+      margin-bottom: 12px;
     }
 
     .details {
       font-size: 13px;
-      line-height: 1.6;
-      margin-bottom: 12px;
-      text-shadow: 0 3px 8px rgba(0,0,0,0.45);
+      margin-bottom: 10px;
     }
 
+    /* 🔥 SMALLER COUNTDOWN */
     .countdown {
       display: flex;
-      gap: 8px;
-      margin: 8px 0 12px;
+      gap: 6px;
       justify-content: center;
-      width: 100%;
+      margin: 8px 0;
     }
 
     .time-box {
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 10px;
-      padding: 6px 7px;
-      min-width: 55px;
-      backdrop-filter: blur(5px);
+      background: rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 5px 6px;
+      min-width: 48px;
     }
 
     .time-box span {
-      display: block;
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 1;
+      font-size: 14px; /* smaller */
+      font-weight: bold;
     }
 
     .time-box small {
-      display: block;
-      font-size: 9px;
-      margin-top: 4px;
+      font-size: 8px;
     }
 
     .btn {
-      pointer-events: auto;
-      display: inline-block;
-      padding: 10px 25px;
+      margin-top: 10px;
+      padding: 10px 24px;
       background: white;
       color: #8b1a1a;
+      border-radius: 25px;
       text-decoration: none;
-      border-radius: 30px;
       font-size: 13px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
     }
 
     @keyframes floatCard {
       0% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+      50% { transform: translateY(-10px); }
       100% { transform: translateY(0); }
-    }
-
-    @media (max-width: 480px) {
-      .card-container {
-        width: 370px;
-      }
-
-      h1 {
-        font-size: 34px;
-      }
-
-      .names {
-        font-size: 19px;
-      }
-
-      .message,
-      .details {
-        font-size: 11px;
-      }
-
-      .time-box {
-        min-width: 45px;
-        padding: 5px;
-      }
-
-      .time-box span {
-        font-size: 15px;
-      }
-
-      .btn {
-        padding: 9px 20px;
-        font-size: 12px;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="overlay">
+<div class="overlay">
 
-    <div class="card-container">
+  <div class="card-container">
 
-      <img src="card.png" class="card-img" alt="Invitation Card">
+    <img src="card.png" class="card-img">
 
-      <div class="text">
+    <div class="text">
 
-        <h1>Nikkah<br>Invitation</h1>
+      <h1>Nikkah Invitation</h1>
 
-        <div class="names">
-          Aisha Semran<br>
-          &<br>
-          Mohammad Fouji
-        </div>
-
-        <div class="message">
-          You are warmly invited to our Nikkah ceremony
-        </div>
-
-        <div class="countdown">
-          <div class="time-box">
-            <span id="days">00</span>
-            <small>Days</small>
-          </div>
-          <div class="time-box">
-            <span id="hours">00</span>
-            <small>Hours</small>
-          </div>
-          <div class="time-box">
-            <span id="minutes">00</span>
-            <small>Min</small>
-          </div>
-          <div class="time-box">
-            <span id="seconds">00</span>
-            <small>Sec</small>
-          </div>
-        </div>
-
-        <div class="details">
-          📅 Friday, May 22, 2026<br>
-          ⏰ 4:00 PM<br>
-          📍 Le Café de l'Horloge, Rigaud
-        </div>
-
-        <a class="btn"
-           href="https://www.google.com/maps/search/?api=1&query=Le+Cafe+de+l'Horloge+Rigaud"
-           target="_blank">
-          View Location
-        </a>
-
+      <div class="names">
+        Aisha Semran<br>
+        &<br>
+        Mohammad Fouji
       </div>
+
+      <div class="message">
+        You are warmly invited to our Nikkah ceremony
+      </div>
+
+      <div class="countdown">
+        <div class="time-box">
+          <span id="days">00</span>
+          <small>Days</small>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <small>Hr</small>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <small>Min</small>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <small>Sec</small>
+        </div>
+      </div>
+
+      <div class="details">
+        📅 Friday, May 22, 2026<br>
+        ⏰ 4:00 PM<br>
+        📍 Le Café de l'Horloge, Rigaud
+      </div>
+
+      <a class="btn" href="#" target="_blank">View Location</a>
 
     </div>
 
   </div>
 
-  <script>
-    const weddingDate = new Date("May 22, 2026 16:00:00").getTime();
+</div>
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
+<script>
+const weddingDate = new Date("May 22, 2026 16:00:00").getTime();
 
-      if (distance < 0) {
-        document.querySelector(".countdown").innerHTML = "Today is the day!";
-        return;
-      }
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((distance / (1000 * 60)) % 60);
-      const seconds = Math.floor((distance / 1000) % 60);
+  const d = Math.floor(distance / (1000*60*60*24));
+  const h = Math.floor((distance/(1000*60*60))%24);
+  const m = Math.floor((distance/(1000*60))%60);
+  const s = Math.floor((distance/1000)%60);
 
-      document.getElementById("days").innerText = days;
-      document.getElementById("hours").innerText = hours;
-      document.getElementById("minutes").innerText = minutes;
-      document.getElementById("seconds").innerText = seconds;
-    }
+  document.getElementById("days").innerText = d;
+  document.getElementById("hours").innerText = h;
+  document.getElementById("minutes").innerText = m;
+  document.getElementById("seconds").innerText = s;
+}
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
+setInterval(updateCountdown,1000);
+</script>
 
 </body>
 </html>
