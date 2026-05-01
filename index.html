@@ -31,12 +31,12 @@
 
     .scene-img {
       position: fixed;
-      opacity: 0;
       pointer-events: none;
       z-index: 3;
+      opacity: 0;
       animation: fadeScene 2s ease-out forwards;
       animation-delay: 5.4s;
-      filter: drop-shadow(0 20px 25px rgba(0,0,0,0.35));
+      filter: drop-shadow(0 20px 25px rgba(0,0,0,0.25));
     }
 
     .lamp-top {
@@ -44,15 +44,13 @@
       left: 15px;
       width: 260px;
       max-width: 45vw;
-      opacity: 0.65;
     }
 
     .candle-stand {
       bottom: 0;
-      left: 10px;
-      width: 290px;
+      right: 10px;
+      width: 300px;
       max-width: 48vw;
-      opacity: 0.65;
     }
 
     @keyframes fadeScene {
@@ -61,7 +59,7 @@
         transform: translateY(25px);
       }
       to {
-        opacity: 1;
+        opacity: 0.6;
         transform: translateY(0);
       }
     }
@@ -219,13 +217,13 @@
 
     .flower-layer-6.left {
       left: 50%;
-      transform: translate(-50%, -50%) scale(0.25) rotate(-8deg);
+      transform: translate(-50%, -50%) scale(0.25) rotate(-5deg);
       animation-name: bloomLeft6;
     }
 
     .flower-layer-6.right {
       right: 50%;
-      transform: translate(50%, -50%) scale(0.25) rotate(8deg) scaleX(-1);
+      transform: translate(50%, -50%) scale(0.25) rotate(5deg) scaleX(-1);
       animation-name: bloomRight6;
     }
 
@@ -279,14 +277,15 @@
       100% { right: 85px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(8deg) scaleX(-1); }
     }
 
+    /* backflower6 moved much more inside / center */
     @keyframes bloomLeft6 {
-      0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-8deg); }
-      100% { left: 110px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-5deg); }
+      0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-5deg); }
+      100% { left: 205px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-3deg); }
     }
-    
+
     @keyframes bloomRight6 {
-      0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(8deg) scaleX(-1); }
-      100% { right: 110px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(5deg) scaleX(-1); }
+      0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(5deg) scaleX(-1); }
+      100% { right: 205px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(3deg) scaleX(-1); }
     }
 
     .card-container {
@@ -409,75 +408,25 @@
       .flower-layer-6 { width: 85px; }
 
       .lamp-top {
-        width: 120px;
-        right: 5px;
+        width: 135px;
+        left: 5px;
         top: -5px;
       }
 
       .candle-stand {
-        width: 130px;
-        left: 0;
+        width: 150px;
+        right: 5px;
         bottom: 0;
       }
 
-      @keyframes bloomLeft1 {
-        0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-12deg); }
-        100% { left: 70px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-8deg); }
-      }
-
-      @keyframes bloomRight1 {
-        0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(12deg) scaleX(-1); }
-        100% { right: 70px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(8deg) scaleX(-1); }
-      }
-
-      @keyframes bloomLeft2 {
-        0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-20deg); }
-        100% { left: 30px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-15deg); }
-      }
-
-      @keyframes bloomRight2 {
-        0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(20deg) scaleX(-1); }
-        100% { right: 30px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(15deg) scaleX(-1); }
-      }
-
-      @keyframes bloomLeft3 {
-        0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-28deg); }
-        100% { left: -25px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-22deg); }
-      }
-
-      @keyframes bloomRight3 {
-        0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(28deg) scaleX(-1); }
-        100% { right: -25px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(22deg) scaleX(-1); }
-      }
-
-      @keyframes bloomLeft4 {
-        0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-20deg); }
-        100% { left: 30px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-14deg); }
-      }
-
-      @keyframes bloomRight4 {
-        0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(20deg) scaleX(-1); }
-        100% { right: 30px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(14deg) scaleX(-1); }
-      }
-
-      @keyframes bloomLeft5 {
-        0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-12deg); }
-        100% { left: 70px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-8deg); }
-      }
-
-      @keyframes bloomRight5 {
-        0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(12deg) scaleX(-1); }
-        100% { right: 70px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(8deg) scaleX(-1); }
-      }
-
       @keyframes bloomLeft6 {
-        0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-8deg); }
-        100% { left: 90px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-5deg); }
+        0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-5deg); }
+        100% { left: 145px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-3deg); }
       }
 
       @keyframes bloomRight6 {
-        0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(8deg) scaleX(-1); }
-        100% { right: 90px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(5deg) scaleX(-1); }
+        0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(5deg) scaleX(-1); }
+        100% { right: 145px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(3deg) scaleX(-1); }
       }
     }
   </style>
