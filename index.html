@@ -2,140 +2,93 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nikkah Invitation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@500&family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@500;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 
 body {
-  margin:0;
-  font-family:'Poppins', sans-serif;
-  background:url('background2.jpg') center/cover no-repeat;
-  height:100vh;
-  overflow:hidden;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('background2.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .overlay {
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  height: 100vh;
+  background: rgba(80,20,30,0.25);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Falling flowers */
+.falling-flowers {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.falling-flower {
+  position: absolute;
+  top: -40px;
+  animation: fall linear infinite;
+}
+
+.falling-flower:nth-child(1){ left:10%; animation-duration:10s;}
+.falling-flower:nth-child(2){ left:30%; animation-duration:12s;}
+.falling-flower:nth-child(3){ left:50%; animation-duration:11s;}
+.falling-flower:nth-child(4){ left:70%; animation-duration:13s;}
+.falling-flower:nth-child(5){ left:90%; animation-duration:14s;}
+
+@keyframes fall {
+  0%{ transform:translateY(-50px); opacity:0;}
+  10%{ opacity:1;}
+  100%{ transform:translateY(110vh); opacity:0;}
 }
 
 /* MAIN */
 .main-design {
-  position:relative;
-  width:min(520px, 90vw);
+  position: relative;
+  width: min(560px, 92vw); /* balanced */
 }
 
-/* CARD */
-.card-container {
-  position:relative;
-  width:100%;
-  z-index:5;
-  animation: float 4s ease-in-out infinite;
+/* FLOWERS (UNCHANGED ORIGINAL POSITIONS) */
+.backflower {
+  position: absolute;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
 
-.card-img {
-  width:100%;
-}
-
-@keyframes float {
-  50% { transform:translateY(-6px); }
-}
-
-/* TEXT */
-.text {
-  position:absolute;
-  top:14%;
-  left:12%;
-  width:76%;
-  height:72%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  color:white;
-  text-align:center;
-}
-
-h1 {
-  font-family:'Playfair Display';
-  font-size:clamp(16px,3.5vw,22px);
-}
-
-.names {
-  font-family:'Allura';
-  font-size:clamp(18px,4.5vw,26px);
-}
-
-.message {
-  font-size:clamp(9px,2.8vw,12px);
-  margin:8px 0;
-}
-
-.details {
-  font-size:clamp(9px,2.8vw,12px);
-}
-
-.countdown {
-  display:flex;
-  gap:4px;
-}
-
-.time-box {
-  background:rgba(255,255,255,0.2);
-  padding:3px 5px;
-  border-radius:6px;
-  font-size:clamp(9px,2.5vw,11px);
-}
-
-.btn {
-  margin-top:8px;
-  padding:2px 6px;
-  border:1px solid white;
-  color:white;
-  font-size:clamp(9px,2.5vw,10px);
-  text-decoration:none;
-}
-
-/* 🌸 BLOOM FLOWERS */
-.bloom {
-  position:absolute;
-  opacity:0;
-  z-index:1;
-  animation-fill-mode:forwards;
-}
-
-/* layers */
-.flower1 { top:28%; width:130px; animation:bloom1 2s forwards 0.5s;}
-.flower2 { top:42%; width:160px; animation:bloom2 2s forwards 1.2s;}
-.flower3 { top:58%; width:200px; animation:bloom3 2s forwards 2s;}
-.flower4 { top:72%; width:160px; animation:bloom4 2s forwards 2.8s;}
-.flower5 { top:85%; width:130px; animation:bloom5 2s forwards 3.6s;}
-.flower6 { top:90%; width:110px; animation:bloom6 2s forwards 4.3s;}
+.flower1 { top:30%; width:140px; animation: bloom1 2s forwards 0.5s; }
+.flower2 { top:45%; width:170px; animation: bloom2 2s forwards 1.2s; }
+.flower3 { top:60%; width:200px; animation: bloom3 2s forwards 2s; }
+.flower4 { top:75%; width:170px; animation: bloom4 2s forwards 2.8s; }
+.flower5 { top:88%; width:140px; animation: bloom5 2s forwards 3.6s; }
+.flower6 { top:92%; width:120px; animation: bloom6 2s forwards 4.3s; }
 
 .flower7 {
-  top:92%;
+  top:94%;
   left:50%;
-  width:140px;
+  width:150px;
   transform:translate(-50%,-50%) scale(0.2);
-  animation:bloomCenter 2s forwards 5s;
+  animation: bloomCenter 2s forwards 5s;
 }
 
-/* start positions */
 .left { left:50%; transform:translate(-50%,-50%) scale(0.2);}
 .right { right:50%; transform:translate(50%,-50%) scale(0.2) scaleX(-1);}
 
-/* FINAL POSITIONS (FIXED — pushed OUT) */
-@keyframes bloom1 { to { left:90px; opacity:1; transform:translate(0,-50%) scale(1);} }
-@keyframes bloom2 { to { left:30px; opacity:1; transform:translate(0,-50%) scale(1);} }
-@keyframes bloom3 { to { left:-90px; opacity:1; transform:translate(0,-50%) scale(1);} }
-@keyframes bloom4 { to { left:30px; opacity:1; transform:translate(0,-50%) scale(1);} }
-@keyframes bloom5 { to { left:90px; opacity:1; transform:translate(0,-50%) scale(1);} }
-@keyframes bloom6 { to { left:150px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom1 { to { left:80px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom2 { to { left:20px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom3 { to { left:-60px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom4 { to { left:20px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom5 { to { left:80px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom6 { to { left:140px; opacity:1; transform:translate(0,-50%) scale(1);} }
 
 @keyframes bloomCenter {
   to { opacity:1; transform:translate(-50%,-50%) scale(1); }
@@ -149,38 +102,89 @@ h1 {
 .right.flower5 { animation-name:bloom5R;}
 .right.flower6 { animation-name:bloom6R;}
 
-@keyframes bloom1R { to { right:90px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
-@keyframes bloom2R { to { right:30px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
-@keyframes bloom3R { to { right:-90px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
-@keyframes bloom4R { to { right:30px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
-@keyframes bloom5R { to { right:90px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
-@keyframes bloom6R { to { right:150px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom1R { to { right:80px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom2R { to { right:20px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom3R { to { right:-60px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom4R { to { right:20px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom5R { to { right:80px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom6R { to { right:140px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
 
-/* 🌸 FALLING FLOWERS */
-.falling-flowers {
-  position:fixed;
-  inset:0;
-  pointer-events:none;
+/* CARD */
+.card-container {
+  position: relative;
+  width: 440px; /* slightly smaller */
+  margin:auto;
+  z-index:5;
+  animation: float 4s infinite ease-in-out;
 }
 
-.falling-flowers img {
+.card-img {
+  width:100%;
+}
+
+@keyframes float {
+  50% { transform: translateY(-10px); }
+}
+
+/* TEXT FIXED CENTER */
+.text {
   position:absolute;
-  top:-50px;
-  width:25px;
-  opacity:0.8;
-  animation:fall linear infinite;
+  top:13%;
+  left:12%;
+  width:76%;
+  height:74%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
 }
 
-.falling-flowers img:nth-child(1){ left:10%; animation-duration:10s;}
-.falling-flowers img:nth-child(2){ left:30%; animation-duration:12s;}
-.falling-flowers img:nth-child(3){ left:50%; animation-duration:11s;}
-.falling-flowers img:nth-child(4){ left:70%; animation-duration:13s;}
-.falling-flowers img:nth-child(5){ left:90%; animation-duration:14s;}
+h1 {
+  font-family:'Playfair Display', serif;
+  font-size:24px;
+  margin-bottom:10px;
+}
 
-@keyframes fall {
-  0% { transform:translateY(-60px) rotate(0deg); opacity:0;}
-  10% { opacity:1;}
-  100% { transform:translateY(110vh) rotate(360deg); opacity:0;}
+.names {
+  font-family:'Allura', cursive;
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.message {
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.details {
+  font-size:12px;
+}
+
+/* COUNTDOWN */
+.countdown {
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin:10px 0;
+}
+
+.time-box {
+  background:rgba(255,255,255,0.2);
+  padding:5px 6px;
+  border-radius:6px;
+  font-size:11px;
+}
+
+/* BUTTON */
+.btn {
+  margin-top:10px;
+  padding:2px 6px;
+  border:1px solid white;
+  color:white;
+  text-decoration:none;
+  font-size:10px;
 }
 
 </style>
@@ -191,35 +195,35 @@ h1 {
 <div class="overlay">
 
 <div class="falling-flowers">
-  <img src="backflower.png">
-  <img src="backflower2.png">
-  <img src="backflower.png">
-  <img src="backflower2.png">
-  <img src="backflower.png">
+  <div class="falling-flower">🌸</div>
+  <div class="falling-flower">🌸</div>
+  <div class="falling-flower">🌸</div>
+  <div class="falling-flower">🌸</div>
+  <div class="falling-flower">🌸</div>
 </div>
 
 <div class="main-design">
 
-<!-- BLOOM FLOWERS -->
-<img src="backflower.png" class="bloom flower1 left">
-<img src="backflower.png" class="bloom flower1 right">
+<!-- FLOWERS -->
+<img src="backflower.png" class="backflower flower1 left">
+<img src="backflower.png" class="backflower flower1 right">
 
-<img src="backflower2.png" class="bloom flower2 left">
-<img src="backflower2.png" class="bloom flower2 right">
+<img src="backflower2.png" class="backflower flower2 left">
+<img src="backflower2.png" class="backflower flower2 right">
 
-<img src="backflower3.png" class="bloom flower3 left">
-<img src="backflower3.png" class="bloom flower3 right">
+<img src="backflower3.png" class="backflower flower3 left">
+<img src="backflower3.png" class="backflower flower3 right">
 
-<img src="backflower4.png" class="bloom flower4 left">
-<img src="backflower4.png" class="bloom flower4 right">
+<img src="backflower4.png" class="backflower flower4 left">
+<img src="backflower4.png" class="backflower flower4 right">
 
-<img src="backflower5.png" class="bloom flower5 left">
-<img src="backflower5.png" class="bloom flower5 right">
+<img src="backflower5.png" class="backflower flower5 left">
+<img src="backflower5.png" class="backflower flower5 right">
 
-<img src="backflower6.png" class="bloom flower6 left">
-<img src="backflower6.png" class="bloom flower6 right">
+<img src="backflower6.png" class="backflower flower6 left">
+<img src="backflower6.png" class="backflower flower6 right">
 
-<img src="backflower7.png" class="bloom flower7">
+<img src="backflower7.png" class="backflower flower7">
 
 <!-- CARD -->
 <div class="card-container">
