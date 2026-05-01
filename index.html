@@ -9,56 +9,33 @@
 
 <style>
 
+/* GLOBAL */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: url('background2.jpg') no-repeat center center;
-  background-size: cover;
+  background: url('background2.jpg') center/cover no-repeat;
   height: 100vh;
   overflow: hidden;
 }
 
 .overlay {
   height: 100vh;
-  background: rgba(80,20,30,0.25);
-  backdrop-filter: blur(3px);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Falling flowers */
-.falling-flowers {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
+/* ================= DESKTOP ================= */
+.desktop {
+  display: block;
 }
 
-.falling-flower {
-  position: absolute;
-  top: -40px;
-  animation: fall linear infinite;
-}
-
-.falling-flower:nth-child(1){ left:10%; animation-duration:10s;}
-.falling-flower:nth-child(2){ left:30%; animation-duration:12s;}
-.falling-flower:nth-child(3){ left:50%; animation-duration:11s;}
-.falling-flower:nth-child(4){ left:70%; animation-duration:13s;}
-.falling-flower:nth-child(5){ left:90%; animation-duration:14s;}
-
-@keyframes fall {
-  0%{ transform:translateY(-50px); opacity:0;}
-  10%{ opacity:1;}
-  100%{ transform:translateY(110vh); opacity:0;}
-}
-
-/* MAIN */
 .main-design {
   position: relative;
-  width: min(560px, 92vw); /* balanced */
+  width: 560px;
 }
 
-/* FLOWERS (UNCHANGED ORIGINAL POSITIONS) */
+/* BLOOM FLOWERS (ORIGINAL PERFECT POSITIONS) */
 .backflower {
   position: absolute;
   opacity: 0;
@@ -94,7 +71,6 @@ body {
   to { opacity:1; transform:translate(-50%,-50%) scale(1); }
 }
 
-/* mirror */
 .right.flower1 { animation-name:bloom1R;}
 .right.flower2 { animation-name:bloom2R;}
 .right.flower3 { animation-name:bloom3R;}
@@ -112,21 +88,15 @@ body {
 /* CARD */
 .card-container {
   position: relative;
-  width: 440px; /* slightly smaller */
+  width: 440px;
   margin:auto;
   z-index:5;
-  animation: float 4s infinite ease-in-out;
 }
 
 .card-img {
   width:100%;
 }
 
-@keyframes float {
-  50% { transform: translateY(-10px); }
-}
-
-/* TEXT FIXED CENTER */
 .text {
   position:absolute;
   top:13%;
@@ -137,54 +107,65 @@ body {
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  text-align:center;
   color:white;
+  text-align:center;
 }
 
-h1 {
-  font-family:'Playfair Display', serif;
-  font-size:24px;
-  margin-bottom:10px;
-}
+h1 { font-family:'Playfair Display'; font-size:24px; }
+.names { font-family:'Allura'; font-size:28px; }
+.message { font-size:12px; margin:8px 0; }
+.details { font-size:12px; }
 
-.names {
-  font-family:'Allura', cursive;
-  font-size:28px;
-  margin-bottom:10px;
-}
-
-.message {
-  font-size:12px;
-  margin-bottom:10px;
-}
-
-.details {
-  font-size:12px;
-}
-
-/* COUNTDOWN */
 .countdown {
   display:flex;
-  justify-content:center;
   gap:6px;
   margin:10px 0;
 }
 
 .time-box {
   background:rgba(255,255,255,0.2);
-  padding:5px 6px;
+  padding:5px;
   border-radius:6px;
   font-size:11px;
 }
 
-/* BUTTON */
 .btn {
-  margin-top:10px;
-  padding:2px 6px;
   border:1px solid white;
+  padding:2px 6px;
   color:white;
-  text-decoration:none;
   font-size:10px;
+  text-decoration:none;
+}
+
+/* ================= MOBILE ================= */
+.mobile {
+  display: none;
+  text-align:center;
+}
+
+.mobile-card {
+  width: 90vw;
+  max-width: 350px;
+  margin:auto;
+}
+
+.mobile img {
+  width:100%;
+}
+
+.mobile-text {
+  margin-top: -70%;
+  color:white;
+}
+
+.mobile h1 { font-size:20px; }
+.mobile .names { font-size:22px; }
+.mobile .message { font-size:12px; }
+
+/* SWITCH */
+@media (max-width: 600px) {
+  .desktop { display: none; }
+  .mobile { display: block; }
 }
 
 </style>
@@ -194,17 +175,10 @@ h1 {
 
 <div class="overlay">
 
-<div class="falling-flowers">
-  <div class="falling-flower">🌸</div>
-  <div class="falling-flower">🌸</div>
-  <div class="falling-flower">🌸</div>
-  <div class="falling-flower">🌸</div>
-  <div class="falling-flower">🌸</div>
-</div>
-
+<!-- DESKTOP -->
+<div class="desktop">
 <div class="main-design">
 
-<!-- FLOWERS -->
 <img src="backflower.png" class="backflower flower1 left">
 <img src="backflower.png" class="backflower flower1 right">
 
@@ -225,13 +199,10 @@ h1 {
 
 <img src="backflower7.png" class="backflower flower7">
 
-<!-- CARD -->
 <div class="card-container">
-
 <img src="card.png" class="card-img">
 
 <div class="text">
-
 <h1>NIKKAH<br>INVITATION</h1>
 
 <div class="names">
@@ -242,41 +213,46 @@ Aisha Semran<br>&<br>Mohammad Fouji
 You are warmly invited to our Nikkah ceremony
 </div>
 
-<div class="countdown">
-<div class="time-box"><span id="d">00</span>d</div>
-<div class="time-box"><span id="h">00</span>h</div>
-<div class="time-box"><span id="m">00</span>m</div>
-<div class="time-box"><span id="s">00</span>s</div>
+<div class="details">
+📅 May 22, 2026<br>
+⏰ 4:00 PM<br>
+📍 Le Café de l'Horloge, Rigaud
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<!-- MOBILE -->
+<div class="mobile">
+
+<div class="mobile-card">
+<img src="card.png">
+</div>
+
+<div class="mobile-text">
+<h1>NIKKAH INVITATION</h1>
+
+<div class="names">
+Aisha Semran<br>&<br>Mohammad Fouji
+</div>
+
+<div class="message">
+You are warmly invited to our Nikkah ceremony
 </div>
 
 <div class="details">
-📅 Friday, May 22, 2026<br>
+📅 May 22, 2026<br>
 ⏰ 4:00 PM<br>
-📍 Rigaud
+📍 Le Café de l'Horloge, Rigaud
 </div>
 
-<a class="btn" href="https://maps.google.com" target="_blank">
-View Location
-</a>
-
-</div>
-</div>
-</div>
 </div>
 
-<script>
-const date = new Date("May 22, 2026 16:00:00").getTime();
+</div>
 
-setInterval(()=>{
-let now = new Date().getTime();
-let diff = date - now;
-
-document.getElementById("d").innerHTML = Math.floor(diff/(1000*60*60*24));
-document.getElementById("h").innerHTML = Math.floor((diff/(1000*60*60))%24);
-document.getElementById("m").innerHTML = Math.floor((diff/(1000*60))%60);
-document.getElementById("s").innerHTML = Math.floor((diff/1000)%60);
-},1000);
-</script>
+</div>
 
 </body>
 </html>
