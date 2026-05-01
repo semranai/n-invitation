@@ -290,24 +290,31 @@ h1 { font-family:'Playfair Display'; font-size:24px; }
   cursor: pointer;
 }
 
-.envelope-base {
+.envelope {
+  position: relative;
+  width: 420px;
+  max-width: 88vw;
+  margin-top: 20px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.envelope-img {
   width: 100%;
+  display: block;
 }
 
-.envelope-flap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transform-origin: top;
-  transition: transform 1s;
+.envelope-open {
+  display: none;
 }
 
-.envelope.open .envelope-flap {
-  transform: rotateX(120deg);
+.envelope.open .envelope-closed {
+  display: none;
 }
 
-
+.envelope.open .envelope-open {
+  display: block;
+}
   
 </style>
 </head>
@@ -316,6 +323,9 @@ h1 { font-family:'Playfair Display'; font-size:24px; }
 
 <!-- ===== INTRO SCREEN ===== -->
 <div class="intro">
+
+<div class="curtain left-curtain"></div>
+<div class="curtain right-curtain"></div>
   
 <div class="intro-text">
   <h1 id="greeting"></h1>
@@ -324,8 +334,8 @@ h1 { font-family:'Playfair Display'; font-size:24px; }
 </div>  
   
 <div class="envelope" onclick="openEnvelope(event)">
-  <img src="envelope-base.png" class="envelope-base">
-  <img src="envelope-flap.png" class="envelope-flap">
+  <img src="envelope-closed.png" class="envelope-img envelope-closed">
+  <img src="envelope-open.png" class="envelope-img envelope-open">
 </div>
   
 
@@ -463,13 +473,14 @@ function enterSite() {
 
 function openEnvelope(e) {
   e.stopPropagation();
+
   const env = document.querySelector(".envelope");
   env.classList.add("open");
 
   setTimeout(() => {
     enterSite();
   }, 1200);
-}
+}  
   
 </script>
   
