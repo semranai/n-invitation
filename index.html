@@ -29,6 +29,41 @@
       overflow: hidden;
     }
 
+    .scene-img {
+      position: fixed;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 3;
+      animation: fadeScene 2s ease-out forwards;
+      animation-delay: 5.4s;
+      filter: drop-shadow(0 20px 25px rgba(0,0,0,0.35));
+    }
+
+    .lamp-top {
+      top: -10px;
+      right: 20px;
+      width: 190px;
+      max-width: 35vw;
+    }
+
+    .candle-stand {
+      bottom: 0;
+      left: 10px;
+      width: 210px;
+      max-width: 38vw;
+    }
+
+    @keyframes fadeScene {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .falling-flowers {
       position: fixed;
       inset: 0;
@@ -78,7 +113,6 @@
       animation-timing-function: ease-out;
     }
 
-    /* TOP — more inside, slightly higher */
     .flower-layer-1 {
       top: 31%;
       width: 145px;
@@ -98,7 +132,6 @@
       animation-name: bloomRight1;
     }
 
-    /* UPPER-MIDDLE — more outside */
     .flower-layer-2 {
       top: 45%;
       width: 170px;
@@ -118,7 +151,6 @@
       animation-name: bloomRight2;
     }
 
-    /* MIDDLE — widest outside */
     .flower-layer-3 {
       top: 60%;
       width: 205px;
@@ -138,7 +170,6 @@
       animation-name: bloomRight3;
     }
 
-    /* LOWER — comes back slightly inside like oval */
     .flower-layer-4 {
       top: 75%;
       width: 175px;
@@ -158,7 +189,6 @@
       animation-name: bloomRight4;
     }
 
-    /* BOTTOM — inside again, near card bottom */
     .flower-layer-5 {
       top: 88%;
       width: 150px;
@@ -176,6 +206,25 @@
       right: 50%;
       transform: translate(50%, -50%) scale(0.25) rotate(12deg) scaleX(-1);
       animation-name: bloomRight5;
+    }
+
+    .flower-layer-6 {
+      top: 96%;
+      width: 135px;
+      animation-duration: 2.4s;
+      animation-delay: 4.5s;
+    }
+
+    .flower-layer-6.left {
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.25) rotate(-8deg);
+      animation-name: bloomLeft6;
+    }
+
+    .flower-layer-6.right {
+      right: 50%;
+      transform: translate(50%, -50%) scale(0.25) rotate(8deg) scaleX(-1);
+      animation-name: bloomRight6;
     }
 
     @keyframes bloomLeft1 {
@@ -226,6 +275,16 @@
     @keyframes bloomRight5 {
       0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(12deg) scaleX(-1); }
       100% { right: 85px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(8deg) scaleX(-1); }
+    }
+
+    @keyframes bloomLeft6 {
+      0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-8deg); }
+      100% { left: 115px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-5deg); }
+    }
+
+    @keyframes bloomRight6 {
+      0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(8deg) scaleX(-1); }
+      100% { right: 115px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(5deg) scaleX(-1); }
     }
 
     .card-container {
@@ -345,6 +404,19 @@
       .flower-layer-3 { width: 140px; }
       .flower-layer-4 { width: 115px; }
       .flower-layer-5 { width: 95px; }
+      .flower-layer-6 { width: 85px; }
+
+      .lamp-top {
+        width: 120px;
+        right: 5px;
+        top: -5px;
+      }
+
+      .candle-stand {
+        width: 130px;
+        left: 0;
+        bottom: 0;
+      }
 
       @keyframes bloomLeft1 {
         0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-12deg); }
@@ -395,6 +467,16 @@
         0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(12deg) scaleX(-1); }
         100% { right: 70px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(8deg) scaleX(-1); }
       }
+
+      @keyframes bloomLeft6 {
+        0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-8deg); }
+        100% { left: 90px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-5deg); }
+      }
+
+      @keyframes bloomRight6 {
+        0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(8deg) scaleX(-1); }
+        100% { right: 90px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(5deg) scaleX(-1); }
+      }
     }
   </style>
 </head>
@@ -402,6 +484,9 @@
 <body>
 
 <div class="overlay">
+
+  <img src="lamptop.png" class="scene-img lamp-top" alt="">
+  <img src="candlestand.png" class="scene-img candle-stand" alt="">
 
   <div class="falling-flowers">
     <div class="falling-flower">🌸</div>
@@ -430,6 +515,9 @@
 
     <img src="backflower5.png" class="backflower flower-layer-5 left" alt="">
     <img src="backflower5.png" class="backflower flower-layer-5 right" alt="">
+
+    <img src="backflower6.png" class="backflower flower-layer-6 left" alt="">
+    <img src="backflower6.png" class="backflower flower-layer-6 right" alt="">
 
     <div class="card-container">
 
