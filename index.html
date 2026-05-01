@@ -9,7 +9,6 @@
 
 <style>
 
-/* GLOBAL */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -18,16 +17,55 @@ body {
   overflow: hidden;
 }
 
-.overlay {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ===== SWITCH ===== */
+.mobile { display: none; }
+
+@media (max-width: 600px) {
+  .desktop { display: none; }
+  .mobile { display: block; }
+}
+
+/* ===== FALLING FLOWERS ===== */
+.falling-flowers {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.falling-flowers img {
+  position: absolute;
+  top: -60px;
+  width: 25px;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+.falling-flowers img:nth-child(1){ left:10%; animation-duration:10s;}
+.falling-flowers img:nth-child(2){ left:30%; animation-duration:12s;}
+.falling-flowers img:nth-child(3){ left:50%; animation-duration:11s;}
+.falling-flowers img:nth-child(4){ left:70%; animation-duration:13s;}
+.falling-flowers img:nth-child(5){ left:90%; animation-duration:14s;}
+
+@keyframes fall {
+  0% { transform:translateY(-60px); opacity:0; }
+  10% { opacity:1; }
+  100% { transform:translateY(110vh); opacity:0; }
+}
+
+/* ===== FLOAT ===== */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
 /* ================= DESKTOP ================= */
+
 .desktop {
-  display: block;
+  height: 100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .main-design {
@@ -35,7 +73,7 @@ body {
   width: 560px;
 }
 
-/* BLOOM FLOWERS (ORIGINAL PERFECT POSITIONS) */
+/* BLOOM FLOWERS (ORIGINAL PERFECT) */
 .backflower {
   position: absolute;
   opacity: 0;
@@ -91,12 +129,12 @@ body {
   width: 440px;
   margin:auto;
   z-index:5;
+  animation: float 4s ease-in-out infinite;
 }
 
-.card-img {
-  width:100%;
-}
+.card-img { width:100%; }
 
+/* TEXT */
 .text {
   position:absolute;
   top:13%;
@@ -107,8 +145,8 @@ body {
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  color:white;
   text-align:center;
+  color:white;
 }
 
 h1 { font-family:'Playfair Display'; font-size:24px; }
@@ -116,67 +154,51 @@ h1 { font-family:'Playfair Display'; font-size:24px; }
 .message { font-size:12px; margin:8px 0; }
 .details { font-size:12px; }
 
-.countdown {
-  display:flex;
-  gap:6px;
-  margin:10px 0;
-}
-
-.time-box {
-  background:rgba(255,255,255,0.2);
-  padding:5px;
-  border-radius:6px;
-  font-size:11px;
-}
-
-.btn {
-  border:1px solid white;
-  padding:2px 6px;
-  color:white;
-  font-size:10px;
-  text-decoration:none;
-}
-
 /* ================= MOBILE ================= */
+
 .mobile {
-  display: none;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
   text-align:center;
+  color:white;
+}
+
+.mobile-card-container {
+  animation: float 4s ease-in-out infinite;
 }
 
 .mobile-card {
-  width: 90vw;
-  max-width: 350px;
-  margin:auto;
-}
-
-.mobile img {
-  width:100%;
+  width:85vw;
+  max-width:340px;
 }
 
 .mobile-text {
-  margin-top: -70%;
-  color:white;
+  margin-top:-55%;
 }
 
 .mobile h1 { font-size:20px; }
 .mobile .names { font-size:22px; }
 .mobile .message { font-size:12px; }
 
-/* SWITCH */
-@media (max-width: 600px) {
-  .desktop { display: none; }
-  .mobile { display: block; }
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="overlay">
-
-<!-- DESKTOP -->
+<!-- ===== DESKTOP ===== -->
 <div class="desktop">
+
+<div class="falling-flowers">
+  <img src="backflower.png">
+  <img src="backflower2.png">
+  <img src="backflower7.png">
+  <img src="backflower.png">
+  <img src="backflower2.png">
+</div>
+
 <div class="main-design">
 
 <img src="backflower.png" class="backflower flower1 left">
@@ -216,19 +238,26 @@ You are warmly invited to our Nikkah ceremony
 <div class="details">
 📅 May 22, 2026<br>
 ⏰ 4:00 PM<br>
-📍 Le Café de l'Horloge, Rigaud
+📍 Rigaud
 </div>
 
 </div>
 </div>
+
 </div>
 </div>
 
-<!-- MOBILE -->
+<!-- ===== MOBILE ===== -->
 <div class="mobile">
 
-<div class="mobile-card">
-<img src="card.png">
+<div class="falling-flowers">
+  <img src="backflower.png">
+  <img src="backflower2.png">
+  <img src="backflower7.png">
+</div>
+
+<div class="mobile-card-container">
+<img src="card.png" class="mobile-card">
 </div>
 
 <div class="mobile-text">
@@ -245,11 +274,8 @@ You are warmly invited to our Nikkah ceremony
 <div class="details">
 📅 May 22, 2026<br>
 ⏰ 4:00 PM<br>
-📍 Le Café de l'Horloge, Rigaud
+📍 Rigaud
 </div>
-
-</div>
-
 </div>
 
 </div>
