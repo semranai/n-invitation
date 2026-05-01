@@ -24,22 +24,26 @@ body {
   justify-content:center;
 }
 
-/* MAIN SCALE */
+/* MAIN */
 .main-design {
   position:relative;
-  width:min(520px, 90vw); /* 🔥 smaller */
+  width:min(520px, 90vw);
 }
 
 /* CARD */
 .card-container {
   position:relative;
   width:100%;
-  animation: float 4s ease-in-out infinite;
   z-index:5;
+  animation: float 4s ease-in-out infinite;
 }
 
 .card-img {
   width:100%;
+}
+
+@keyframes float {
+  50% { transform:translateY(-6px); }
 }
 
 /* TEXT */
@@ -57,7 +61,6 @@ body {
   text-align:center;
 }
 
-/* TEXT SCALED DOWN */
 h1 {
   font-family:'Playfair Display';
   font-size:clamp(16px,3.5vw,22px);
@@ -77,7 +80,6 @@ h1 {
   font-size:clamp(9px,2.8vw,12px);
 }
 
-/* COUNTDOWN */
 .countdown {
   display:flex;
   gap:4px;
@@ -90,7 +92,6 @@ h1 {
   font-size:clamp(9px,2.5vw,11px);
 }
 
-/* BUTTON */
 .btn {
   margin-top:8px;
   padding:2px 6px;
@@ -98,11 +99,6 @@ h1 {
   color:white;
   font-size:clamp(9px,2.5vw,10px);
   text-decoration:none;
-}
-
-/* FLOAT */
-@keyframes float {
-  50% { transform:translateY(-6px); }
 }
 
 /* 🌸 BLOOM FLOWERS */
@@ -113,31 +109,33 @@ h1 {
   animation-fill-mode:forwards;
 }
 
-.flower1 { top:28%; width:clamp(60px,14vw,120px); animation:bloom1 2s forwards 0.5s;}
-.flower2 { top:42%; width:clamp(80px,16vw,150px); animation:bloom2 2s forwards 1.2s;}
-.flower3 { top:58%; width:clamp(100px,20vw,180px); animation:bloom3 2s forwards 2s;}
-.flower4 { top:72%; width:clamp(80px,16vw,150px); animation:bloom4 2s forwards 2.8s;}
-.flower5 { top:85%; width:clamp(60px,14vw,120px); animation:bloom5 2s forwards 3.6s;}
-.flower6 { top:90%; width:clamp(50px,10vw,100px); animation:bloom6 2s forwards 4.3s;}
+/* layers */
+.flower1 { top:28%; width:130px; animation:bloom1 2s forwards 0.5s;}
+.flower2 { top:42%; width:160px; animation:bloom2 2s forwards 1.2s;}
+.flower3 { top:58%; width:200px; animation:bloom3 2s forwards 2s;}
+.flower4 { top:72%; width:160px; animation:bloom4 2s forwards 2.8s;}
+.flower5 { top:85%; width:130px; animation:bloom5 2s forwards 3.6s;}
+.flower6 { top:90%; width:110px; animation:bloom6 2s forwards 4.3s;}
 
 .flower7 {
   top:92%;
   left:50%;
-  width:clamp(70px,14vw,130px);
+  width:140px;
   transform:translate(-50%,-50%) scale(0.2);
   animation:bloomCenter 2s forwards 5s;
 }
 
+/* start positions */
 .left { left:50%; transform:translate(-50%,-50%) scale(0.2);}
 .right { right:50%; transform:translate(50%,-50%) scale(0.2) scaleX(-1);}
 
-/* animations */
-@keyframes bloom1 { to { left:50px; opacity:1; transform:translate(0,-50%) scale(1);} }
-@keyframes bloom2 { to { left:5px; opacity:1; transform:translate(0,-50%) scale(1);} }
-@keyframes bloom3 { to { left:-35px; opacity:1; transform:translate(0,-50%) scale(1);} }
-@keyframes bloom4 { to { left:5px; opacity:1; transform:translate(0,-50%) scale(1);} }
-@keyframes bloom5 { to { left:50px; opacity:1; transform:translate(0,-50%) scale(1);} }
-@keyframes bloom6 { to { left:90px; opacity:1; transform:translate(0,-50%) scale(1);} }
+/* FINAL POSITIONS (FIXED — pushed OUT) */
+@keyframes bloom1 { to { left:90px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom2 { to { left:30px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom3 { to { left:-90px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom4 { to { left:30px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom5 { to { left:90px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom6 { to { left:150px; opacity:1; transform:translate(0,-50%) scale(1);} }
 
 @keyframes bloomCenter {
   to { opacity:1; transform:translate(-50%,-50%) scale(1); }
@@ -151,25 +149,24 @@ h1 {
 .right.flower5 { animation-name:bloom5R;}
 .right.flower6 { animation-name:bloom6R;}
 
-@keyframes bloom1R { to { right:50px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
-@keyframes bloom2R { to { right:5px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
-@keyframes bloom3R { to { right:-35px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
-@keyframes bloom4R { to { right:5px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
-@keyframes bloom5R { to { right:50px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
-@keyframes bloom6R { to { right:90px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom1R { to { right:90px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom2R { to { right:30px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom3R { to { right:-90px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom4R { to { right:30px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom5R { to { right:90px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom6R { to { right:150px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
 
 /* 🌸 FALLING FLOWERS */
 .falling-flowers {
   position:fixed;
   inset:0;
   pointer-events:none;
-  z-index:1;
 }
 
 .falling-flowers img {
   position:absolute;
   top:-50px;
-  width:clamp(15px,4vw,28px);
+  width:25px;
   opacity:0.8;
   animation:fall linear infinite;
 }
