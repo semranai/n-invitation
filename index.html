@@ -9,27 +9,7 @@
 
 <style>
 
-/* ===== INTRO ===== */
-.intro {
-  position: fixed;
-  inset: 0;
-  background: black;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
 
-/* CURTAINS */
-.curtain {
-  position: absolute;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  background: #6d1f2b;
-  z-index: 2;
-}
 
 .left-curtain {
   left: 0;
@@ -49,20 +29,66 @@
   to { transform: translateX(100%); }
 }
 
-/* TEXT */
+/* ===== INTRO ===== */
+.intro {
+  position: fixed;
+  inset: 0;
+  background: url('intro-desktop.png') center/cover no-repeat;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Flower curtain panels */
+.curtain {
+  position: absolute;
+  top: 0;
+  width: 52%;
+  height: 100%;
+  z-index: 2;
+  background-image: url('flower-side.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.left-curtain {
+  left: 0;
+  animation: openLeft 2.4s ease-in-out forwards;
+}
+
+.right-curtain {
+  right: 0;
+  transform: scaleX(-1);
+  animation: openRight 2.4s ease-in-out forwards;
+}
+
+@keyframes openLeft {
+  to { transform: translateX(-120%); }
+}
+
+@keyframes openRight {
+  to { transform: translateX(120%) scaleX(-1); }
+}
+
+/* INTRO TEXT */
 .intro-text {
   color: white;
   text-align: center;
   z-index: 1;
   opacity: 0;
-  animation: fadeIn 2s forwards 2s;
+  animation: fadeIn 2s forwards 2.2s;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.45);
 }
 
- .intro-text h1 {
+.intro-text h1 {
   font-family: 'Playfair Display';
   font-size: 36px;
   letter-spacing: 2px;
-} 
+}
 
 .tap {
   margin-top: 15px;
@@ -85,23 +111,22 @@
 .main-site {
   display: none;
   opacity: 0;
-}  
-  
-  
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: url('background2.jpg') center/cover no-repeat;
-  height: 100vh;
-  overflow: hidden;
 }
 
-/* ===== SWITCH ===== */
-.mobile { display: none; }
-
+/* Mobile intro background */
 @media (max-width: 600px) {
-  .desktop { display: none; }
-  .mobile { display: block; }
+  .intro {
+    background: url('intro-mobile.png') center/cover no-repeat;
+  }
+
+  .curtain {
+    width: 58%;
+    background-size: cover;
+  }
+
+  .intro-text h1 {
+    font-size: 28px;
+  }
 }
 
 /* ===== FALLING FLOWERS ===== */
