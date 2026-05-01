@@ -148,12 +148,18 @@ body {
 
 /* TEXT */
 .text {
-  position:absolute;
-  top:13%;
-  left:12%;
-  width:76%;
-  text-align:center;
-  color:white;
+  position: absolute;
+  top: 13%;
+  left: 12%;
+  width: 76%;
+  height: 74%;
+  color: white;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -167,7 +173,11 @@ h1 {
   font-size:30px;
   margin-bottom:10px;
 }
-
+.message {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+  
 .details { font-size:13px; }
 
 /* COUNTDOWN */
@@ -246,6 +256,10 @@ h1 {
 Aisha Semran<br>&<br>Mohammad Fouji
 </div>
 
+<div class="message">
+  You are warmly invited to our Nikkah ceremony
+</div>
+
 <div class="countdown">
 <div class="time-box"><span id="d">00</span>d</div>
 <div class="time-box"><span id="h">00</span>h</div>
@@ -254,9 +268,9 @@ Aisha Semran<br>&<br>Mohammad Fouji
 </div>
 
 <div class="details">
-📅 May 22, 2026<br>
+📅 Friday, May 22, 2026<br>
 ⏰ 4:00 PM<br>
-📍 Rigaud
+📍 Le Café de l'Horloge, Rigaud
 </div>
 
 <a class="btn" href="https://maps.google.com" target="_blank">
