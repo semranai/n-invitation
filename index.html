@@ -281,22 +281,53 @@ h1 { font-family:'Playfair Display'; font-size:24px; }
 .mobile .names { font-size:22px; }
 .mobile .message { font-size:12px; }
 
+
+.envelope {
+  position: relative;
+  width: 420px;
+  max-width: 88vw;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.envelope-base {
+  width: 100%;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform-origin: top;
+  transition: transform 1s;
+}
+
+.envelope.open .envelope-flap {
+  transform: rotateX(120deg);
+}
+
+
+  
 </style>
 </head>
 
 <body>
 
 <!-- ===== INTRO SCREEN ===== -->
-<div class="intro" onclick="enterSite()">
-
-  <div class="curtain left-curtain"></div>
-  <div class="curtain right-curtain"></div>
-
-  <div class="intro-text">
-    <h1 id="greeting"></h1>
-    <h1>Save the Date</h1>
-    <p class="tap">Tap to open invitation</p>
-  </div>
+<div class="intro">
+  
+<div class="intro-text">
+  <h1 id="greeting"></h1>
+  <h1>Save the Date</h1>
+  <p class="tap">Tap to open</p>
+</div>  
+  
+<div class="envelope" onclick="openEnvelope(event)">
+  <img src="envelope-base.png" class="envelope-base">
+  <img src="envelope-flap.png" class="envelope-flap">
+</div>
+  
 
 </div>
 
@@ -430,6 +461,16 @@ function enterSite() {
   }, 1000);
 }
 
+function openEnvelope(e) {
+  e.stopPropagation();
+  const env = document.querySelector(".envelope");
+  env.classList.add("open");
+
+  setTimeout(() => {
+    enterSite();
+  }, 1200);
+}
+  
 </script>
   
 
