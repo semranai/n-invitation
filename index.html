@@ -5,7 +5,6 @@
   <title>Nikkah Invitation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Allura&family=Playfair+Display:wght@500;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -58,25 +57,76 @@
     .flower:nth-child(8) { left: 88%; animation-duration: 16s; animation-delay: 0.5s; font-size: 16px; }
 
     @keyframes fall {
+      0% { transform: translateY(-60px) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.8; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    .main-design {
+      position: relative;
+      width: 520px;
+      max-width: 98vw;
+      z-index: 2;
+    }
+
+    .side-flower {
+      position: absolute;
+      top: 50%;
+      width: 190px;
+      opacity: 0;
+      z-index: 1;
+      filter: drop-shadow(0 20px 25px rgba(0,0,0,0.25));
+      animation-duration: 2.2s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out;
+      animation-delay: 0.7s;
+    }
+
+    .side-flower.left {
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.3) rotate(-20deg);
+      animation-name: bloomLeft;
+    }
+
+    .side-flower.right {
+      right: 50%;
+      transform: translate(50%, -50%) scale(0.3) rotate(20deg) scaleX(-1);
+      animation-name: bloomRight;
+    }
+
+    @keyframes bloomLeft {
       0% {
-        transform: translateY(-60px) rotate(0deg);
+        left: 50%;
         opacity: 0;
-      }
-      10% {
-        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(0.3) rotate(-20deg);
       }
       100% {
-        transform: translateY(110vh) rotate(360deg);
+        left: -45px;
+        opacity: 1;
+        transform: translate(0, -50%) scale(1) rotate(-12deg);
+      }
+    }
+
+    @keyframes bloomRight {
+      0% {
+        right: 50%;
         opacity: 0;
+        transform: translate(50%, -50%) scale(0.3) rotate(20deg) scaleX(-1);
+      }
+      100% {
+        right: -45px;
+        opacity: 1;
+        transform: translate(0, -50%) scale(1) rotate(12deg) scaleX(-1);
       }
     }
 
     .card-container {
       position: relative;
-      width: 460px;
-      max-width: 97vw;
+      width: 500px;
+      max-width: 98vw;
+      margin: auto;
       animation: floatCard 4s ease-in-out infinite;
-      z-index: 2;
+      z-index: 3;
     }
 
     .card-img {
@@ -172,6 +222,46 @@
       50% { transform: translateY(-10px); }
       100% { transform: translateY(0); }
     }
+
+    @media (max-width: 480px) {
+      .main-design {
+        width: 390px;
+      }
+
+      .card-container {
+        width: 390px;
+      }
+
+      .side-flower {
+        width: 120px;
+      }
+
+      @keyframes bloomLeft {
+        0% {
+          left: 50%;
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.3) rotate(-20deg);
+        }
+        100% {
+          left: -20px;
+          opacity: 1;
+          transform: translate(0, -50%) scale(1) rotate(-12deg);
+        }
+      }
+
+      @keyframes bloomRight {
+        0% {
+          right: 50%;
+          opacity: 0;
+          transform: translate(50%, -50%) scale(0.3) rotate(20deg) scaleX(-1);
+        }
+        100% {
+          right: -20px;
+          opacity: 1;
+          transform: translate(0, -50%) scale(1) rotate(12deg) scaleX(-1);
+        }
+      }
+    }
   </style>
 </head>
 
@@ -190,57 +280,64 @@
     <div class="flower">🌷</div>
   </div>
 
-  <div class="card-container">
+  <div class="main-design">
 
-    <img src="card.png" class="card-img">
+    <img src="backflower.png" class="side-flower left" alt="">
+    <img src="backflower.png" class="side-flower right" alt="">
 
-    <div class="text">
+    <div class="card-container">
 
-      <h1>
-        NIKKAH<br>
-        INVITATION
-      </h1>
+      <img src="card.png" class="card-img">
 
-      <div class="names">
-        Aisha Semran<br>
-        &<br>
-        Mohammad Fouji
-      </div>
+      <div class="text">
 
-      <div class="message">
-        You are warmly invited to our Nikkah ceremony
-      </div>
+        <h1>
+          NIKKAH<br>
+          INVITATION
+        </h1>
 
-      <div class="countdown">
-        <div class="time-box">
-          <span id="days">00</span>
-          <small>D</small>
+        <div class="names">
+          Aisha Semran<br>
+          &<br>
+          Mohammad Fouji
         </div>
-        <div class="time-box">
-          <span id="hours">00</span>
-          <small>H</small>
-        </div>
-        <div class="time-box">
-          <span id="minutes">00</span>
-          <small>M</small>
-        </div>
-        <div class="time-box">
-          <span id="seconds">00</span>
-          <small>S</small>
-        </div>
-      </div>
 
-      <div class="details">
-        📅 Friday, May 22, 2026<br>
-        ⏰ 4:00 PM<br>
-        📍 Le Café de l'Horloge, Rigaud
-      </div>
+        <div class="message">
+          You are warmly invited to our Nikkah ceremony
+        </div>
 
-      <a class="btn"
-         href="https://www.google.com/maps/search/?api=1&query=Le+Cafe+de+l%27Horloge+Rigaud"
-         target="_blank">
-        View Location
-      </a>
+        <div class="countdown">
+          <div class="time-box">
+            <span id="days">00</span>
+            <small>D</small>
+          </div>
+          <div class="time-box">
+            <span id="hours">00</span>
+            <small>H</small>
+          </div>
+          <div class="time-box">
+            <span id="minutes">00</span>
+            <small>M</small>
+          </div>
+          <div class="time-box">
+            <span id="seconds">00</span>
+            <small>S</small>
+          </div>
+        </div>
+
+        <div class="details">
+          📅 Friday, May 22, 2026<br>
+          ⏰ 4:00 PM<br>
+          📍 Le Café de l'Horloge, Rigaud
+        </div>
+
+        <a class="btn"
+           href="https://www.google.com/maps/search/?api=1&query=Le+Cafe+de+l%27Horloge+Rigaud"
+           target="_blank">
+          View Location
+        </a>
+
+      </div>
 
     </div>
 
