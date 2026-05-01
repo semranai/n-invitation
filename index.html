@@ -1,568 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Nikkah Invitation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Allura&family=Playfair+Display:wght@500;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: url('background2.jpg') no-repeat center center;
-      background-size: cover;
-      background-color: #b98b8f;
-      min-height: 100vh;
-      overflow: hidden;
-    }
-
-    .overlay {
-      min-height: 100vh;
-      background: rgba(80, 20, 30, 0.25);
-      backdrop-filter: blur(3px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .scene-img {
-      position: fixed;
-      pointer-events: none;
-      z-index: 3;
-      opacity: 0;
-      animation: fadeScene 2s ease-out forwards;
-      animation-delay: 5.4s;
-      filter: drop-shadow(0 20px 25px rgba(0,0,0,0.25));
-    }
-
-    .lamp-top {
-      top: -10px;
-      left: 15px;
-      width: 260px;
-      max-width: 45vw;
-    }
-
-    @keyframes fadeScene {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-      to {
-        opacity: 0.6;
-        transform: translateY(0);
-      }
-    }
-
-    .falling-flowers {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    .falling-flower {
-      position: absolute;
-      top: -40px;
-      font-size: 18px;
-      opacity: 0.75;
-      animation-name: fall;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-    }
-
-    .falling-flower:nth-child(1) { left: 8%; animation-duration: 10s; animation-delay: 0s; }
-    .falling-flower:nth-child(2) { left: 18%; animation-duration: 13s; animation-delay: 2s; font-size: 14px; }
-    .falling-flower:nth-child(3) { left: 28%; animation-duration: 11s; animation-delay: 4s; font-size: 20px; }
-    .falling-flower:nth-child(4) { left: 40%; animation-duration: 15s; animation-delay: 1s; font-size: 15px; }
-    .falling-flower:nth-child(5) { left: 52%; animation-duration: 12s; animation-delay: 3s; font-size: 19px; }
-    .falling-flower:nth-child(6) { left: 64%; animation-duration: 14s; animation-delay: 5s; font-size: 14px; }
-    .falling-flower:nth-child(7) { left: 76%; animation-duration: 10s; animation-delay: 2.5s; font-size: 20px; }
-    .falling-flower:nth-child(8) { left: 88%; animation-duration: 16s; animation-delay: 0.5s; font-size: 16px; }
-
-    @keyframes fall {
-      0% { transform: translateY(-60px) rotate(0deg); opacity: 0; }
-      10% { opacity: 0.8; }
-      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-    }
-
-    .main-design {
-      position: relative;
-      width: 640px;
-      max-width: 98vw;
-      z-index: 2;
-    }
-
-    .backflower {
-      position: absolute;
-      opacity: 0;
-      z-index: 1;
-      filter: drop-shadow(0 20px 25px rgba(0,0,0,0.25));
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-out;
-    }
-
-    .flower-layer-1 {
-      top: 31%;
-      width: 145px;
-      animation-duration: 2s;
-      animation-delay: 0.5s;
-    }
-
-    .flower-layer-1.left {
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.25) rotate(-12deg);
-      animation-name: bloomLeft1;
-    }
-
-    .flower-layer-1.right {
-      right: 50%;
-      transform: translate(50%, -50%) scale(0.25) rotate(12deg) scaleX(-1);
-      animation-name: bloomRight1;
-    }
-
-    .flower-layer-2 {
-      top: 45%;
-      width: 170px;
-      animation-duration: 2.2s;
-      animation-delay: 1.3s;
-    }
-
-    .flower-layer-2.left {
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.25) rotate(-20deg);
-      animation-name: bloomLeft2;
-    }
-
-    .flower-layer-2.right {
-      right: 50%;
-      transform: translate(50%, -50%) scale(0.25) rotate(20deg) scaleX(-1);
-      animation-name: bloomRight2;
-    }
-
-    .flower-layer-3 {
-      top: 60%;
-      width: 205px;
-      animation-duration: 2.4s;
-      animation-delay: 2.1s;
-    }
-
-    .flower-layer-3.left {
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.25) rotate(-28deg);
-      animation-name: bloomLeft3;
-    }
-
-    .flower-layer-3.right {
-      right: 50%;
-      transform: translate(50%, -50%) scale(0.25) rotate(28deg) scaleX(-1);
-      animation-name: bloomRight3;
-    }
-
-    .flower-layer-4 {
-      top: 75%;
-      width: 175px;
-      animation-duration: 2.4s;
-      animation-delay: 2.9s;
-    }
-
-    .flower-layer-4.left {
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.25) rotate(-20deg);
-      animation-name: bloomLeft4;
-    }
-
-    .flower-layer-4.right {
-      right: 50%;
-      transform: translate(50%, -50%) scale(0.25) rotate(20deg) scaleX(-1);
-      animation-name: bloomRight4;
-    }
-
-    .flower-layer-5 {
-      top: 88%;
-      width: 150px;
-      animation-duration: 2.4s;
-      animation-delay: 3.7s;
-    }
-
-    .flower-layer-5.left {
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.25) rotate(-12deg);
-      animation-name: bloomLeft5;
-    }
-
-    .flower-layer-5.right {
-      right: 50%;
-      transform: translate(50%, -50%) scale(0.25) rotate(12deg) scaleX(-1);
-      animation-name: bloomRight5;
-    }
-
-    .flower-layer-6 {
-      top: 98%;
-      width: 135px;
-      animation-duration: 2.4s;
-      animation-delay: 4.5s;
-    }
-
-    .flower-layer-6.left {
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.25) rotate(-5deg);
-      animation-name: bloomLeft6;
-    }
-
-    .flower-layer-6.right {
-      right: 50%;
-      transform: translate(50%, -50%) scale(0.25) rotate(5deg) scaleX(-1);
-      animation-name: bloomRight6;
-    }
-
-    .flower-layer-7 {
-      top: 102%;
-      left: 50%;
-      width: 150px;
-      transform: translate(-50%, -50%) scale(0.25);
-      animation-name: bloomCenter7;
-      animation-duration: 2.4s;
-      animation-delay: 5.2s;
-    }
-
-    @keyframes bloomLeft1 {
-      0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-12deg); }
-      100% { left: 85px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-8deg); }
-    }
-
-    @keyframes bloomRight1 {
-      0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(12deg) scaleX(-1); }
-      100% { right: 85px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(8deg) scaleX(-1); }
-    }
-
-    @keyframes bloomLeft2 {
-      0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-20deg); }
-      100% { left: 25px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-15deg); }
-    }
-
-    @keyframes bloomRight2 {
-      0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(20deg) scaleX(-1); }
-      100% { right: 25px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(15deg) scaleX(-1); }
-    }
-
-    @keyframes bloomLeft3 {
-      0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-28deg); }
-      100% { left: -70px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-22deg); }
-    }
-
-    @keyframes bloomRight3 {
-      0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(28deg) scaleX(-1); }
-      100% { right: -70px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(22deg) scaleX(-1); }
-    }
-
-    @keyframes bloomLeft4 {
-      0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-20deg); }
-      100% { left: 25px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-14deg); }
-    }
-
-    @keyframes bloomRight4 {
-      0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(20deg) scaleX(-1); }
-      100% { right: 25px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(14deg) scaleX(-1); }
-    }
-
-    @keyframes bloomLeft5 {
-      0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-12deg); }
-      100% { left: 85px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-8deg); }
-    }
-
-    @keyframes bloomRight5 {
-      0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(12deg) scaleX(-1); }
-      100% { right: 85px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(8deg) scaleX(-1); }
-    }
-
-    @keyframes bloomLeft6 {
-      0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-5deg); }
-      100% { left: 205px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-3deg); }
-    }
-
-    @keyframes bloomRight6 {
-      0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(5deg) scaleX(-1); }
-      100% { right: 205px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(3deg) scaleX(-1); }
-    }
-
-    @keyframes bloomCenter7 {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.25);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-      }
-    }
-
-    .card-container {
-      position: relative;
-      width: 500px;
-      max-width: 98vw;
-      margin: auto;
-      animation: floatCard 4s ease-in-out infinite;
-      z-index: 5;
-    }
-
-    .card-img {
-      width: 100%;
-      filter: drop-shadow(0 30px 35px rgba(0,0,0,0.4));
-    }
-
-    .text {
-      position: absolute;
-      top: 13%;
-      left: 12%;
-      width: 76%;
-      height: 74%;
-      color: white;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      line-height: 1.2;
-      text-shadow: 0 3px 8px rgba(0,0,0,0.4);
-    }
-
-    .names {
-      font-family: 'Allura', cursive;
-      font-size: 30px;
-      line-height: 1.25;
-      margin-bottom: 15px;
-      text-shadow: 0 3px 8px rgba(0,0,0,0.4);
-    }
-
-    .message {
-      font-size: 13px;
-      margin-bottom: 12px;
-    }
-
-    .details {
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
-
-    .countdown {
-      display: flex;
-      gap: 6px;
-      justify-content: center;
-      margin: 8px 0;
-    }
-
-    .time-box {
-      background: rgba(255,255,255,0.2);
-      border-radius: 8px;
-      padding: 5px 6px;
-      min-width: 45px;
-    }
-
-    .time-box span {
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    .time-box small {
-      font-size: 8px;
-    }
-
-    .btn {
-      margin-top: 8px;
-      padding: 2px 4px;
-      border: 1px solid white;
-      background: transparent;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 11px;
-      line-height: 1;
-      width: fit-content;
-      display: inline-block;
-    }
-
-    .btn:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    @keyframes floatCard {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
-
-    @media (max-width: 480px) {
-      .main-design {
-        width: 430px;
-      }
-
-      .card-container {
-        width: 390px;
-      }
-
-      .flower-layer-1 { width: 95px; }
-      .flower-layer-2 { width: 115px; }
-      .flower-layer-3 { width: 140px; }
-      .flower-layer-4 { width: 115px; }
-      .flower-layer-5 { width: 95px; }
-      .flower-layer-6 { width: 85px; }
-      .flower-layer-7 { width: 95px; }
-
-      .lamp-top {
-        width: 135px;
-        left: 5px;
-        top: -5px;
-      }
-
-      @keyframes bloomLeft6 {
-        0% { left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.25) rotate(-5deg); }
-        100% { left: 145px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(-3deg); }
-      }
-
-      @keyframes bloomRight6 {
-        0% { right: 50%; opacity: 0; transform: translate(50%, -50%) scale(0.25) rotate(5deg) scaleX(-1); }
-        100% { right: 145px; opacity: 1; transform: translate(0, -50%) scale(1) rotate(3deg) scaleX(-1); }
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Nikkah Invitation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@500;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('background2.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden; /* 🔥 removes bottom gap */
+}
+
+.overlay {
+  height: 100vh;
+  background: rgba(80,20,30,0.25);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Falling flowers */
+.falling-flowers {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.falling-flower {
+  position: absolute;
+  top: -40px;
+  animation: fall linear infinite;
+}
+
+.falling-flower:nth-child(1){ left:10%; animation-duration:10s;}
+.falling-flower:nth-child(2){ left:30%; animation-duration:12s;}
+.falling-flower:nth-child(3){ left:50%; animation-duration:11s;}
+.falling-flower:nth-child(4){ left:70%; animation-duration:13s;}
+.falling-flower:nth-child(5){ left:90%; animation-duration:14s;}
+
+@keyframes fall {
+  0%{ transform:translateY(-50px); opacity:0;}
+  10%{ opacity:1;}
+  100%{ transform:translateY(110vh); opacity:0;}
+}
+
+.main-design {
+  position: relative;
+  width: 600px;
+  max-width: 95vw;
+}
+
+/* FLOWERS */
+.backflower {
+  position: absolute;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* layers */
+.flower1 { top:30%; width:140px; animation: bloom1 2s forwards 0.5s; }
+.flower2 { top:45%; width:170px; animation: bloom2 2s forwards 1.2s; }
+.flower3 { top:60%; width:200px; animation: bloom3 2s forwards 2s; }
+.flower4 { top:75%; width:170px; animation: bloom4 2s forwards 2.8s; }
+.flower5 { top:88%; width:140px; animation: bloom5 2s forwards 3.6s; }
+.flower6 { top:92%; width:120px; animation: bloom6 2s forwards 4.3s; }
+
+/* center single flower */
+.flower7 {
+  top:94%;
+  left:50%;
+  width:150px;
+  transform:translate(-50%,-50%) scale(0.2);
+  animation: bloomCenter 2s forwards 5s;
+}
+
+/* left / right */
+.left { left:50%; transform:translate(-50%,-50%) scale(0.2);}
+.right { right:50%; transform:translate(50%,-50%) scale(0.2) scaleX(-1);}
+
+/* animations */
+@keyframes bloom1 {
+  to { left:80px; opacity:1; transform:translate(0,-50%) scale(1);}
+}
+@keyframes bloom2 {
+  to { left:20px; opacity:1; transform:translate(0,-50%) scale(1);}
+}
+@keyframes bloom3 {
+  to { left:-60px; opacity:1; transform:translate(0,-50%) scale(1);}
+}
+@keyframes bloom4 {
+  to { left:20px; opacity:1; transform:translate(0,-50%) scale(1);}
+}
+@keyframes bloom5 {
+  to { left:80px; opacity:1; transform:translate(0,-50%) scale(1);}
+}
+@keyframes bloom6 {
+  to { left:140px; opacity:1; transform:translate(0,-50%) scale(1);}
+}
+
+@keyframes bloomCenter {
+  to {
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+  }
+}
+
+/* mirror right */
+.right.flower1 { animation-name:bloom1R;}
+.right.flower2 { animation-name:bloom2R;}
+.right.flower3 { animation-name:bloom3R;}
+.right.flower4 { animation-name:bloom4R;}
+.right.flower5 { animation-name:bloom5R;}
+.right.flower6 { animation-name:bloom6R;}
+
+@keyframes bloom1R { to { right:80px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom2R { to { right:20px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom3R { to { right:-60px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom4R { to { right:20px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom5R { to { right:80px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom6R { to { right:140px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+
+/* CARD */
+.card-container {
+  position: relative;
+  width: 480px;
+  margin:auto;
+  z-index:5;
+  animation: float 4s infinite ease-in-out;
+}
+
+.card-img {
+  width:100%;
+}
+
+@keyframes float {
+  50% { transform: translateY(-10px); }
+}
+
+/* TEXT */
+.text {
+  position:absolute;
+  top:13%;
+  left:12%;
+  width:76%;
+  text-align:center;
+  color:white;
+}
+
+h1 {
+  font-family:'Playfair Display', serif;
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+.names {
+  font-family:'Allura', cursive;
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.details { font-size:13px; }
+
+/* COUNTDOWN */
+.countdown {
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin:10px 0;
+}
+
+.time-box {
+  background:rgba(255,255,255,0.2);
+  padding:5px 6px;
+  border-radius:6px;
+  font-size:12px;
+}
+
+/* BUTTON */
+.btn {
+  margin-top:10px;
+  padding:2px 6px;
+  border:1px solid white;
+  color:white;
+  text-decoration:none;
+  font-size:11px;
+}
+
+</style>
 </head>
 
 <body>
 
 <div class="overlay">
 
+<div class="falling-flowers">
+  <div class="falling-flower">🌸</div>
+  <div class="falling-flower">🌸</div>
+  <div class="falling-flower">🌸</div>
+  <div class="falling-flower">🌸</div>
+  <div class="falling-flower">🌸</div>
+</div>
 
-  <div class="falling-flowers">
-    <div class="falling-flower">🌸</div>
-    <div class="falling-flower">🌺</div>
-    <div class="falling-flower">🌸</div>
-    <div class="falling-flower">🌷</div>
-    <div class="falling-flower">🌸</div>
-    <div class="falling-flower">🌺</div>
-    <div class="falling-flower">🌸</div>
-    <div class="falling-flower">🌷</div>
-  </div>
+<div class="main-design">
 
-  <div class="main-design">
+<!-- flowers -->
+<img src="backflower.png" class="backflower flower1 left">
+<img src="backflower.png" class="backflower flower1 right">
 
-    <img src="backflower.png" class="backflower flower-layer-1 left" alt="">
-    <img src="backflower.png" class="backflower flower-layer-1 right" alt="">
+<img src="backflower2.png" class="backflower flower2 left">
+<img src="backflower2.png" class="backflower flower2 right">
 
-    <img src="backflower2.png" class="backflower flower-layer-2 left" alt="">
-    <img src="backflower2.png" class="backflower flower-layer-2 right" alt="">
+<img src="backflower3.png" class="backflower flower3 left">
+<img src="backflower3.png" class="backflower flower3 right">
 
-    <img src="backflower3.png" class="backflower flower-layer-3 left" alt="">
-    <img src="backflower3.png" class="backflower flower-layer-3 right" alt="">
+<img src="backflower4.png" class="backflower flower4 left">
+<img src="backflower4.png" class="backflower flower4 right">
 
-    <img src="backflower4.png" class="backflower flower-layer-4 left" alt="">
-    <img src="backflower4.png" class="backflower flower-layer-4 right" alt="">
+<img src="backflower5.png" class="backflower flower5 left">
+<img src="backflower5.png" class="backflower flower5 right">
 
-    <img src="backflower5.png" class="backflower flower-layer-5 left" alt="">
-    <img src="backflower5.png" class="backflower flower-layer-5 right" alt="">
+<img src="backflower6.png" class="backflower flower6 left">
+<img src="backflower6.png" class="backflower flower6 right">
 
-    <img src="backflower6.png" class="backflower flower-layer-6 left" alt="">
-    <img src="backflower6.png" class="backflower flower-layer-6 right" alt="">
+<img src="backflower7.png" class="backflower flower7">
 
-    <img src="backflower7.png" class="backflower flower-layer-7" alt="">
+<!-- card -->
+<div class="card-container">
 
-    <div class="card-container">
+<img src="card.png" class="card-img">
 
-      <img src="card.png" class="card-img">
+<div class="text">
 
-      <div class="text">
+<h1>NIKKAH<br>INVITATION</h1>
 
-        <h1>
-          NIKKAH<br>
-          INVITATION
-        </h1>
+<div class="names">
+Aisha Semran<br>&<br>Mohammad Fouji
+</div>
 
-        <div class="names">
-          Aisha Semran<br>
-          &<br>
-          Mohammad Fouji
-        </div>
+<div class="countdown">
+<div class="time-box"><span id="d">00</span>d</div>
+<div class="time-box"><span id="h">00</span>h</div>
+<div class="time-box"><span id="m">00</span>m</div>
+<div class="time-box"><span id="s">00</span>s</div>
+</div>
 
-        <div class="message">
-          You are warmly invited to our Nikkah ceremony
-        </div>
+<div class="details">
+📅 May 22, 2026<br>
+⏰ 4:00 PM<br>
+📍 Rigaud
+</div>
 
-        <div class="countdown">
-          <div class="time-box">
-            <span id="days">00</span>
-            <small>D</small>
-          </div>
-          <div class="time-box">
-            <span id="hours">00</span>
-            <small>H</small>
-          </div>
-          <div class="time-box">
-            <span id="minutes">00</span>
-            <small>M</small>
-          </div>
-          <div class="time-box">
-            <span id="seconds">00</span>
-            <small>S</small>
-          </div>
-        </div>
+<a class="btn" href="https://maps.google.com" target="_blank">
+View Location
+</a>
 
-        <div class="details">
-          📅 Friday, May 22, 2026<br>
-          ⏰ 4:00 PM<br>
-          📍 Le Café de l'Horloge, Rigaud
-        </div>
-
-        <a class="btn"
-           href="https://www.google.com/maps/search/?api=1&query=Le+Cafe+de+l%27Horloge+Rigaud"
-           target="_blank">
-          View Location
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
+</div>
+</div>
+</div>
 </div>
 
 <script>
-const weddingDate = new Date("May 22, 2026 16:00:00").getTime();
+const date = new Date("May 22, 2026 16:00:00").getTime();
 
-function updateCountdown() {
-  const now = new Date().getTime();
-  const distance = weddingDate - now;
+setInterval(()=>{
+let now = new Date().getTime();
+let diff = date - now;
 
-  if (distance < 0) {
-    document.querySelector(".countdown").innerHTML = "Today is the day!";
-    return;
-  }
+let d = Math.floor(diff/(1000*60*60*24));
+let h = Math.floor((diff/(1000*60*60))%24);
+let m = Math.floor((diff/(1000*60))%60);
+let s = Math.floor((diff/1000)%60);
 
-  const d = Math.floor(distance / (1000*60*60*24));
-  const h = Math.floor((distance/(1000*60*60))%24);
-  const m = Math.floor((distance/(1000*60))%60);
-  const s = Math.floor((distance/1000)%60);
-
-  document.getElementById("days").innerText = d;
-  document.getElementById("hours").innerText = h;
-  document.getElementById("minutes").innerText = m;
-  document.getElementById("seconds").innerText = s;
-}
-
-updateCountdown();
-setInterval(updateCountdown,1000);
+document.getElementById("d").innerHTML=d;
+document.getElementById("h").innerHTML=h;
+document.getElementById("m").innerHTML=m;
+document.getElementById("s").innerHTML=s;
+},1000);
 </script>
 
 </body>
