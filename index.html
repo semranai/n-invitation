@@ -23,7 +23,16 @@
   overflow: hidden;
 }
   
+ .click-flower {
+  width: 180px;
+  cursor: pointer;
+  z-index: 3;
+} 
 
+.click-flower {
+  display: block;
+  margin: 20px auto;
+}
   
 /* Flower curtain panels */
 .curtain {
@@ -289,7 +298,9 @@ h1 { font-family:'Playfair Display'; font-size:24px; }
 <body>
 
 <!-- ===== INTRO SCREEN ===== -->
-<div class="intro" onclick="enterSite()">
+<div class="intro">
+
+
 
 <div class="curtain left-curtain"></div>
 <div class="curtain right-curtain"></div>
@@ -300,7 +311,7 @@ h1 { font-family:'Playfair Display'; font-size:24px; }
   <p class="tap">Tap anywhere to open invitation</p>
 </div>  
   
-
+<img src="clickflower.png" class="click-flower" onclick="playFlower(event)">  
   
 
 </div>
@@ -403,6 +414,18 @@ You are warmly invited to our Nikkah ceremony
 
 <script>
 
+function playFlower(e) {
+  e.stopPropagation();
+
+  const flower = document.querySelector(".click-flower");
+  flower.src = "clickflower.gif";
+
+  setTimeout(() => {
+    enterSite();
+  }, 2600);
+}
+
+  
 /* Greeting */
 const hour = new Date().getHours();
 let greeting = "Welcome";
