@@ -291,6 +291,45 @@ h1 { font-family:'Playfair Display'; font-size:24px; }
 .mobile .names { font-size:22px; }
 .mobile .message { font-size:12px; }
 
+
+/* INTRO BORDER CARD */
+
+.intro-card {
+position: relative;
+width: 420px;
+animation: float 4s ease-in-out infinite;
+}
+
+.intro-border {
+width: 100%;
+display: block;
+}
+
+/* TEXT ON BORDER */
+.intro-card-text {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -55%);
+text-align: center;
+width: 75%;
+}
+
+/* GREETING */
+.intro-card-text h2 {
+font-size: 20px;
+color: #7a5c2e;
+font-family: 'Playfair Display';
+margin-bottom: 8px;
+}
+
+/* MAIN TEXT (CURSIVE STYLE) */
+.intro-card-text h1 {
+font-size: 42px;
+color: #a3262a;
+font-family: 'Allura', cursive;
+}
+
   
 </style>
 </head>
@@ -305,12 +344,23 @@ h1 { font-family:'Playfair Display'; font-size:24px; }
 <div class="curtain left-curtain"></div>
 <div class="curtain right-curtain"></div>
   
-<div class="intro-text">
-  <h1 id="greeting"></h1>
-  <h1>Save the Date</h1>
-  <p class="tap">Tap anywhere to open invitation</p>
+<div style="position: relative; width: 400px;">
+
+  <img src="BOARD.png" style="width:100%; display:block;">
+
+  <h1 style="
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    font-family:'Allura', cursive;
+    font-size:40px;
+    color:#a3262a;
+  ">
+    Save the Date
+  </h1>
+
 </div>  
-  
 <img src="clickflower.png" class="click-flower" onclick="playFlower(event)">  
   
 
