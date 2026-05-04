@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,54 +5,427 @@
 <title>Nikkah Invitation</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@500;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-body { margin:0; font-family:Arial; }
 
-/* INTRO */
+
+/* ===== INTRO ===== */
 .intro {
-  position:fixed;
-  inset:0;
-  background:black;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  z-index:999;
-  cursor:pointer;
+  position: fixed;
+  inset: 0;
+  background: url('intro-desktop.png') center/cover no-repeat;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+  
+ .click-flower {
+  width: 180px;
+  cursor: pointer;
+  z-index: 3;
+} 
+
+.click-flower {
+  display: block;
+  margin: 20px auto;
+}
+  
+/* Flower curtain panels */
+.curtain {
+  position: absolute;
+  top: 0;
+  width: 52%;
+  height: 100%;
+  z-index: 2;
+  background-image: url('flower-side.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-/* MAIN SITE */
+.left-curtain {
+  left: 0;
+  animation: openLeft 2.4s ease-in-out forwards;
+}
+
+.right-curtain {
+  right: 0;
+  transform: scaleX(-1);
+  animation: openRight 2.4s ease-in-out forwards;
+}
+
+@keyframes openLeft {
+  to { transform: translateX(-120%); }
+}
+
+@keyframes openRight {
+  to { transform: translateX(120%) scaleX(-1); }
+}
+
+/* INTRO TEXT */
+.intro-text {
+  color: white;
+  text-align: center;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeIn 2s forwards 2.2s;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.45);
+}
+
+.intro-text h1 {
+  font-family: 'Playfair Display';
+  font-size: 36px;
+  letter-spacing: 2px;
+}
+
+.tap {
+  margin-top: 15px;
+  font-size: 12px;
+  opacity: 0.7;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* HIDE MAIN INITIALLY */
 .main-site {
-  display:none;
-  height:100vh;
-  background:#111;
-  color:white;
+  display: none;
+  opacity: 0;
+  background: url('background2.jpg') center/cover no-repeat;
+  min-height: 100vh;
+  position: relative; 
+}
+
+.main-site::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: 0;
+}
+  
+
+/* Mobile intro background */
+@media (max-width: 600px) {
+  .intro {
+    background: url('intro-mobile.png') center/cover no-repeat;
+  }
+
+  .curtain {
+    width: 58%;
+    background-size: cover;
+  }
+
+  .intro-text h1 {
+    font-size: 28px;
+  }
+}
+
+/* ===== FALLING FLOWERS ===== */
+.falling-flowers {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.falling-flowers img {
+  position: absolute;
+  top: -60px;
+  width: 25px;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+.falling-flowers img:nth-child(1){ left:10%; animation-duration:10s;}
+.falling-flowers img:nth-child(2){ left:30%; animation-duration:12s;}
+.falling-flowers img:nth-child(3){ left:50%; animation-duration:11s;}
+.falling-flowers img:nth-child(4){ left:70%; animation-duration:13s;}
+.falling-flowers img:nth-child(5){ left:90%; animation-duration:14s;}
+
+@keyframes fall {
+  0% { transform:translateY(-60px); opacity:0; }
+  10% { opacity:1; }
+  100% { transform:translateY(110vh); opacity:0; }
+}
+
+/* ===== FLOAT ===== */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* ================= DESKTOP ================= */
+
+.desktop {
+  height: 100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  flex-direction:column;
 }
+
+.main-design {
+  position: relative;
+  width: 560px;
+}
+
+/* BLOOM FLOWERS (ORIGINAL PERFECT) */
+.backflower {
+  position: absolute;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.flower1 { top:30%; width:140px; animation: bloom1 2s forwards 0.5s; }
+.flower2 { top:45%; width:170px; animation: bloom2 2s forwards 1.2s; }
+.flower3 { top:60%; width:200px; animation: bloom3 2s forwards 2s; }
+.flower4 { top:75%; width:170px; animation: bloom4 2s forwards 2.8s; }
+.flower5 { top:88%; width:140px; animation: bloom5 2s forwards 3.6s; }
+.flower6 { top:92%; width:120px; animation: bloom6 2s forwards 4.3s; }
+
+.flower7 {
+  top:94%;
+  left:50%;
+  width:150px;
+  transform:translate(-50%,-50%) scale(0.2);
+  animation: bloomCenter 2s forwards 5s;
+}
+
+.left { left:50%; transform:translate(-50%,-50%) scale(0.2);}
+.right { right:50%; transform:translate(50%,-50%) scale(0.2) scaleX(-1);}
+
+@keyframes bloom1 { to { left:80px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom2 { to { left:20px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom3 { to { left:-60px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom4 { to { left:20px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom5 { to { left:80px; opacity:1; transform:translate(0,-50%) scale(1);} }
+@keyframes bloom6 { to { left:140px; opacity:1; transform:translate(0,-50%) scale(1);} }
+
+@keyframes bloomCenter {
+  to { opacity:1; transform:translate(-50%,-50%) scale(1); }
+}
+
+.right.flower1 { animation-name:bloom1R;}
+.right.flower2 { animation-name:bloom2R;}
+.right.flower3 { animation-name:bloom3R;}
+.right.flower4 { animation-name:bloom4R;}
+.right.flower5 { animation-name:bloom5R;}
+.right.flower6 { animation-name:bloom6R;}
+
+@keyframes bloom1R { to { right:80px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom2R { to { right:20px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom3R { to { right:-60px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom4R { to { right:20px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom5R { to { right:80px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+@keyframes bloom6R { to { right:140px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
+
+/* CARD */
+.card-container {
+  position: relative;
+  width: 440px;
+  margin:auto;
+  z-index:5;
+  animation: float 4s ease-in-out infinite;
+}
+
+.card-img { width:100%; }
+
+/* TEXT */
+.text {
+  position:absolute;
+  top:13%;
+  left:12%;
+  width:76%;
+  height:74%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+}
+
+h1 { font-family:'Playfair Display'; font-size:24px; }
+.names { font-family:'Allura'; font-size:28px; }
+.message { font-size:12px; margin:8px 0; }
+.details { font-size:12px; }
+
+/* ================= MOBILE ================= */
+
+.mobile {
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+}
+
+.mobile-card-container {
+  animation: float 4s ease-in-out infinite;
+}
+
+.mobile-card {
+  width:85vw;
+  max-width:340px;
+}
+
+.mobile-text {
+  margin-top:-55%;
+}
+
+.mobile h1 { font-size:20px; }
+.mobile .names { font-size:22px; }
+.mobile .message { font-size:12px; }
+
+  
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
-<div class="intro" onclick="enterSite()">
+<!-- ===== INTRO SCREEN ===== -->
+<div class="intro">
+
+
+
+<div class="curtain left-curtain"></div>
+<div class="curtain right-curtain"></div>
+  
+<div class="intro-text">
   <h1 id="greeting"></h1>
-  <h2>Tap to Enter</h2>
+  <h1>Save the Date</h1>
+  <p class="tap">Tap anywhere to open invitation</p>
+</div>  
+  
+<img src="clickflower.png" class="click-flower" onclick="playFlower(event)">  
+  
+
 </div>
 
-<!-- MAIN SITE -->
 <div class="main-site" id="mainSite">
-  <h1>NIKKAH INVITATION</h1>
-  <h2>Aisha Semran & Mohammad Fouji</h2>
-  <p>May 22, 2026</p>
+  
+<!-- ===== DESKTOP ===== -->
+<div class="desktop">
+
+<div class="falling-flowers">
+  <img src="backflower.png">
+  <img src="backflower2.png">
+  <img src="backflower7.png">
+  <img src="backflower.png">
+  <img src="backflower2.png">
+</div>
+
+<div class="main-design">
+
+<img src="backflower.png" class="backflower flower1 left">
+<img src="backflower.png" class="backflower flower1 right">
+
+<img src="backflower2.png" class="backflower flower2 left">
+<img src="backflower2.png" class="backflower flower2 right">
+
+<img src="backflower3.png" class="backflower flower3 left">
+<img src="backflower3.png" class="backflower flower3 right">
+
+<img src="backflower4.png" class="backflower flower4 left">
+<img src="backflower4.png" class="backflower flower4 right">
+
+<img src="backflower5.png" class="backflower flower5 left">
+<img src="backflower5.png" class="backflower flower5 right">
+
+<img src="backflower6.png" class="backflower flower6 left">
+<img src="backflower6.png" class="backflower flower6 right">
+
+<img src="backflower7.png" class="backflower flower7">
+
+<div class="card-container">
+<img src="card.png" class="card-img">
+
+<div class="text">
+<h1>NIKKAH<br>INVITATION</h1>
+
+<div class="names">
+Aisha Semran<br>&<br>Mohammad Fouji
+</div>
+
+<div class="message">
+You are warmly invited to our Nikkah ceremony
+</div>
+
+<div class="details">
+📅 May 22, 2026<br>
+⏰ 4:00 PM<br>
+📍 Le Café de l'Horloge, Rigaud
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ===== MOBILE ===== -->
+<div class="mobile">
+
+<div class="falling-flowers">
+  <img src="backflower.png">
+  <img src="backflower2.png">
+  <img src="backflower7.png">
+</div>
+
+<div class="mobile-card-container">
+<img src="card.png" class="mobile-card">
+</div>
+
+<div class="mobile-text">
+<h1>NIKKAH INVITATION</h1>
+
+<div class="names">
+Aisha Semran<br>&<br>Mohammad Fouji
+</div>
+
+<div class="message">
+You are warmly invited to our Nikkah ceremony
+</div>
+
+<div class="details">
+📅 May 22, 2026<br>
+⏰ 4:00 PM<br>
+📍 Le Café de l'Horloge, Rigaud
+</div>
+</div>
+
+</div>
+  
 </div>
 
 <script>
 
+function playFlower(e) {
+  e.stopPropagation();
+
+  const flower = document.querySelector(".click-flower");
+  flower.src = "clickflower.gif";
+
+  setTimeout(() => {
+    enterSite();
+  }, 2600);
+}
+
+  
 /* Greeting */
 const hour = new Date().getHours();
 let greeting = "Welcome";
@@ -64,14 +436,32 @@ else greeting = "Good Evening";
 
 document.getElementById("greeting").innerText = greeting;
 
-/* Enter */
+/* Smooth enter */
 function enterSite() {
-  document.querySelector(".intro").style.display = "none";
-  document.getElementById("mainSite").style.display = "flex";
+  const intro = document.querySelector(".intro");
+  const main = document.getElementById("mainSite");
+
+  intro.style.opacity = "0";
+  intro.style.transition = "opacity 1s ease";
+
+  setTimeout(() => {
+    intro.style.display = "none";
+    main.style.display = "block";
+
+    main.style.opacity = "0";
+    main.style.transition = "opacity 1s ease";
+
+    setTimeout(() => {
+      main.style.opacity = "1";
+    }, 50);
+
+  }, 1000);
 }
 
+  
 </script>
+  
 
+  
 </body>
 </html>
-```
