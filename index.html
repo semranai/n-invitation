@@ -14,7 +14,7 @@
 .intro {
   position: fixed;
   inset: 0;
-  background: url('intro-desktop.png') center/cover no-repeat;
+  background: black;
   z-index: 999;
   display: flex;
   align-items: center;
@@ -22,6 +22,68 @@
   flex-direction: column;
   overflow: hidden;
 }
+
+/* DOOR SYSTEM */
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('desktopBG1.png') center/cover no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease;
+  z-index: 1;
+}
+
+.frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+/* responsive frames */
+.desktop-frame { display: block; }
+.phone-frame { display: none; }
+
+@media (max-width: 768px) {
+  .bg {
+    background: url('phoneBG1.png') center/cover no-repeat;
+  }
+  .desktop-frame { display: none; }
+  .phone-frame { display: block; }
+}
+
+/* doors */
+#doors {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 3;
+}
+
+.door {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.5s ease;
+}
+
+.right {
+  transform: scaleX(-1);
+}
+
+/* open animation */
+.intro.open .left {
+  transform: translateX(-100%);
+}
+
+.intro.open .right {
+  transform: translateX(100%) scaleX(-1);
+}
+
   
  .click-flower {
   width: 180px;
@@ -118,10 +180,6 @@
   
 
 /* Mobile intro background */
-@media (max-width: 600px) {
-  .intro {
-    background: url('intro-mobile.png') center/cover no-repeat;
-  }
 
   .curtain {
     width: 58%;
@@ -300,26 +358,25 @@ h1 { font-family:'Playfair Display'; font-size:24px; }
 <!-- ===== INTRO SCREEN ===== -->
 <div class="intro">
 
+  <div class="bg"></div>
 
+  <img src="desktopdoorframe.png" class="frame desktop-frame">
+  <img src="phonedoorframe.png" class="frame phone-frame">
 
-<div class="curtain left-curtain"></div>
-<div class="curtain right-curtain"></div>
-  
-<div class="intro-text">
-  <h1 id="greeting"></h1>
-  <h1>Save the Date</h1>
-  <p class="tap">Tap anywhere to open invitation</p>
-</div>  
-  
-<img src="clickflower.png" class="click-flower" onclick="playFlower(event)">  
-  
+  <div id="doors">
+    <img src="door1.png" class="door left">
+    <img src="door1.png" class="door right">
+  </div>
+
+  <div class="intro-text">
+    <h1 id="greeting"></h1>
+    <h1>Save the Date</h1>
+  </div>
 
 </div>
-
-<div class="main-site" id="mainSite">
   
 <!-- ===== DESKTOP ===== -->
-<div class="desktop">
+<div class="main-site" id="mainSite">
 
 <div class="falling-flowers">
   <img src="backflower.png">
@@ -329,7 +386,7 @@ h1 { font-family:'Playfair Display'; font-size:24px; }
   <img src="backflower2.png">
 </div>
 
-<div class="main-design">
+<div class="desktop">
 
 <img src="backflower.png" class="backflower flower1 left">
 <img src="backflower.png" class="backflower flower1 right">
@@ -374,10 +431,11 @@ You are warmly invited to our Nikkah ceremony
 </div>
 </div>
 
-</div>
+
 </div>
 
-<!-- ===== MOBILE ===== -->
+
+
 <div class="mobile">
 
 <div class="falling-flowers">
@@ -408,22 +466,39 @@ You are warmly invited to our Nikkah ceremony
 </div>
 </div>
 
+</div>  
+</div>
+
 </div>
   
 </div>
 
 <script>
 
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelector(".intro").addEventListener("click", playFlower);
+});
+
+  
+
 function playFlower(e) {
   e.stopPropagation();
 
-  const flower = document.querySelector(".click-flower");
-  flower.src = "clickflower.gif";
+  const intro = document.querySelector(".intro");
 
+  // OPEN DOORS
+  intro.classList.add("open");
+
+  // SHOW BACKGROUND
+  setTimeout(() => {
+    document.querySelector(".bg").style.opacity = "1";
+  }, 800);
+
+  // ENTER SITE
   setTimeout(() => {
     enterSite();
-  }, 2600);
-}
+  }, 2000);
+}  
 
   
 /* Greeting */
@@ -465,3 +540,4 @@ function enterSite() {
   
 </body>
 </html>
+</div>
