@@ -279,7 +279,8 @@
     width: 75%;
     text-align: center;
     color: white;
-  }
+    font-size: 12px;
+}
 
 }
 
@@ -303,9 +304,23 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-  }
+}
 }
 
+.names {
+  font-family: 'Allura', cursive;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+#countdown {
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #f7d98c;
+  font-family: 'Poppins';
+}  
+
+  
 body {
   overflow-x: hidden;
 }
@@ -435,9 +450,20 @@ You are warmly invited to our Nikkah ceremony
 </div>
 
 <div class="details">
+ <div class="countdown"></div> 
 📅 May 22, 2026<br>
 ⏰ 4:00 PM<br>
-📍 Le Café de l'Horloge, Rigaud
+📍 Le Café de l'Horloge, Rigaud <br>
+
+ <a href="https://maps.google.com/?q=Le+Cafe+de+lHorloge+Rigaud"
+target="_blank"
+style="
+color:#f7d98c;
+text-decoration:none;
+font-size:11px;
+">
+View Location
+</a> 
 </div>
 
 </div>
@@ -490,11 +516,22 @@ You are warmly invited to our Nikkah ceremony
     <div class="message">
       You are warmly invited to our Nikkah ceremony
     </div>
-
+<div class="countdown"></div>
     <div class="details">
       📅 May 22, 2026<br>
       ⏰ 4:00 PM<br>
-      📍 Le Café de l'Horloge, Rigaud
+      📍 Le Café de l'Horloge, Rigaud<br>
+
+<a href="https://maps.google.com/?q=Le+Cafe+de+lHorloge+Rigaud"
+target="_blank"
+style="
+color:#f7d98c;
+text-decoration:none;
+font-size:11px;
+">
+View Location
+</a>
+    
     </div>
   </div>
 </div>
@@ -550,7 +587,20 @@ function enterSite() {
 
   }, 1000);
 }
+const weddingDate = new Date("May 22, 2026 16:00:00").getTime();
 
+setInterval(() => {
+
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+  document.querySelectorAll(".countdown").forEach(el => {
+    el.innerHTML = days + " Days Remaining";
+  });
+
+}, 1000);
   
 </script>
   
