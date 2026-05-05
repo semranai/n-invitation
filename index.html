@@ -338,6 +338,25 @@ color: #a3262a;
 font-family: 'Allura', cursive;
 }
 
+/* HIDE MOBILE ON DESKTOP */
+.mobile {
+  display: none;
+}
+
+/* HIDE DESKTOP ON MOBILE */
+@media (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: flex;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
   
 </style>
 </head>
