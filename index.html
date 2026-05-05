@@ -239,105 +239,30 @@
 @keyframes bloom6R { to { right:140px; opacity:1; transform:translate(0,-50%) scale(1) scaleX(-1);} }
 
 /* CARD */
-.card-container {
-  position: relative;
-  width: 360px;
-  margin:auto;
-  z-index:5;
-  animation: float 4s ease-in-out infinite, fadeIn 1.5s ease forwards;
-  opacity:0;
+@media (max-width: 768px) {
+  .card-container {
+    width: 85vw;
+    max-width: 300px;
+  }
 }
 
 .card-img { width:100%; }
 
 /* TEXT */
-.text {
-  position:absolute;
-  top:13%;
-  left:12%;
-  width:76%;
-  height:74%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:white;
+@media (max-width: 768px) {
+
+  .card-container {
+    width: 85vw;
+    max-width: 300px;
+  }
+
+  .text {
+    top: 15%;
+    left: 10%;
+    width: 80%;
+  }
+
 }
-
-h1 { font-family:'Playfair Display'; font-size:24px; }
-.names { font-family:'Allura'; font-size:28px; }
-.message { font-size:12px; margin:8px 0; }
-.details { font-size:12px; }
-
-/* ================= MOBILE ================= */
-
-.mobile {
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:white;
-}
-
-.mobile-card-container {
-  animation: float 4s ease-in-out infinite;
-}
-
-.mobile-card {
-  width:85vw;
-  max-width:280px;
-}
-
-.mobile-text {
-  margin-top:-55%;
-}
-
-.mobile h1 { font-size:20px; }
-.mobile .names { font-size:22px; }
-.mobile .message { font-size:12px; }
-
-
-/* INTRO BORDER CARD */
-
-.intro-card {
-position: relative;
-width: 420px;
-animation: float 4s ease-in-out infinite;
-}
-
-.intro-border {
-width: 100%;
-display: block;
-}
-
-/* TEXT ON BORDER */
-.intro-card-text {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -55%);
-text-align: center;
-width: 75%;
-}
-
-/* GREETING */
-.intro-card-text h2 {
-font-size: 20px;
-color: #7a5c2e;
-font-family: 'Playfair Display';
-margin-bottom: 8px;
-}
-
-/* MAIN TEXT (CURSIVE STYLE) */
-.intro-card-text h1 {
-font-size: 42px;
-color: #a3262a;
-font-family: 'Allura', cursive;
-}
-
 /* HIDE MOBILE ON DESKTOP */
 .mobile {
   display: none;
@@ -503,30 +428,28 @@ You are warmly invited to our Nikkah ceremony
   <img src="backflower7.png">
 </div>
 
-<div class="mobile-card-container">
-<img src="card.png" class="mobile-card">
+<div class="card-container">
+  <img src="card.png" class="card-img">
+
+  <div class="text">
+    <h1>NIKKAH<br>INVITATION</h1>
+
+    <div class="names">
+      Aisha Semran<br>&<br>Mohammad Fouji
+    </div>
+
+    <div class="message">
+      You are warmly invited to our Nikkah ceremony
+    </div>
+
+    <div class="details">
+      📅 May 22, 2026<br>
+      ⏰ 4:00 PM<br>
+      📍 Le Café de l'Horloge, Rigaud
+    </div>
+  </div>
 </div>
 
-<div class="mobile-text">
-<h1>NIKKAH INVITATION</h1>
-
-<div class="names">
-Aisha Semran<br>&<br>Mohammad Fouji
-</div>
-
-<div class="message">
-You are warmly invited to our Nikkah ceremony
-</div>
-
-<div class="details">
-📅 May 22, 2026<br>
-⏰ 4:00 PM<br>
-📍 Le Café de l'Horloge, Rigaud
-</div>
-</div>
-
-</div>
-  
 </div>
 
 <script>
