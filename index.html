@@ -336,6 +336,8 @@ font-family: 'Allura', cursive;
 
 <body>
 
+
+  
 <!-- ===== INTRO SCREEN ===== -->
 <div class="intro">
 
@@ -381,14 +383,12 @@ font-family: 'Allura', cursive;
 </div>
 
   </div>
-
-</div>
+  <!-- flower -->
+<img src="clickflower.png" class="click-flower" onclick="playFlower(event)">
 
   
-<img src="clickflower.png" class="click-flower" onclick="playFlower(event)">  
-<div class="intro">
+</div> <!-- intro closed -->
 
-</div>
 
 <div class="main-site" id="mainSite">
   
@@ -508,7 +508,6 @@ if (hour < 12) greeting = "Good Morning";
 else if (hour < 18) greeting = "Good Afternoon";
 else greeting = "Good Evening";
 
-document.getElementById("greeting").innerText = greeting;
 
 /* Smooth enter */
 function enterSite() {
