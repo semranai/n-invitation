@@ -307,18 +307,66 @@
 }
 }
 
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.count-box {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(247,217,140,0.3);
+  border-radius: 16px;
+
+  min-width: 50px;
+  padding: 6px 5px;
+
+  backdrop-filter: blur(5px);
+}
+
+.count-box div {
+  font-size: 18px;
+  color: #f7d98c;
+  font-family: 'Playfair Display';
+}
+
+.count-box span {
+  font-size: 9px;
+  color: white;
+  opacity: 0.8;
+  font-family: 'Poppins';
+}
+
+.location-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: rgba(247,217,140,0.18);
+  border: 1px solid rgba(247,217,140,0.5);
+
+  color: #f7d98c;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: 'Poppins';
+
+  backdrop-filter: blur(6px);
+  transition: 0.3s ease;
+}
+
+.location-btn:hover {
+  background: rgba(247,217,140,0.35);
+  transform: scale(1.05);
+}  
+  
 .names {
   font-family: 'Allura', cursive;
   font-size: 34px;
   line-height: 1.1;
 }
 
-#countdown {
-  margin-bottom: 10px;
-  font-size: 13px;
-  color: #f7d98c;
-  font-family: 'Poppins';
-}  
 
   
 body {
@@ -455,15 +503,11 @@ You are warmly invited to our Nikkah ceremony
 ⏰ 4:00 PM<br>
 📍 Le Café de l'Horloge, Rigaud <br>
 
- <a href="https://maps.google.com/?q=Le+Cafe+de+lHorloge+Rigaud"
+<a href="https://maps.google.com/?q=Le+Cafe+de+lHorloge+Rigaud"
 target="_blank"
-style="
-color:#f7d98c;
-text-decoration:none;
-font-size:11px;
-">
-View Location
-</a> 
+class="location-btn">
+📍 View Location
+</a>
 </div>
 
 </div>
@@ -524,12 +568,8 @@ View Location
 
 <a href="https://maps.google.com/?q=Le+Cafe+de+lHorloge+Rigaud"
 target="_blank"
-style="
-color:#f7d98c;
-text-decoration:none;
-font-size:11px;
-">
-View Location
+class="location-btn">
+📍 View Location
 </a>
     
     </div>
@@ -595,9 +635,32 @@ setInterval(() => {
   const distance = weddingDate - now;
 
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   document.querySelectorAll(".countdown").forEach(el => {
-    el.innerHTML = days + " Days Remaining";
+    el.innerHTML = `
+      <div class="count-box">
+        <div>${days}</div>
+        <span>Days</span>
+      </div>
+
+      <div class="count-box">
+        <div>${hours}</div>
+        <span>Hours</span>
+      </div>
+
+      <div class="count-box">
+        <div>${minutes}</div>
+        <span>Minutes</span>
+      </div>
+
+      <div class="count-box">
+        <div>${seconds}</div>
+        <span>Seconds</span>
+      </div>
+    `;
   });
 
 }, 1000);
