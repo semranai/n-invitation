@@ -119,6 +119,8 @@
   
 .card-container {
   position: relative;
+  animation: float 4s ease-in-out infinite;
+  z-index: 5;
 }
 
 .text {
@@ -200,6 +202,12 @@
   width: 560px;
 }
 
+@media (max-width: 768px) {
+  .main-design {
+    width: 100%;
+  }
+}  
+
 /* BLOOM FLOWERS (ORIGINAL PERFECT) */
 .backflower {
   position: absolute;
@@ -277,18 +285,17 @@
   display: none;
 }
 
-/* HIDE DESKTOP ON MOBILE */
 @media (max-width: 768px) {
   .desktop {
     display: none;
   }
 
   .mobile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
 }
 
 body {
@@ -433,6 +440,28 @@ You are warmly invited to our Nikkah ceremony
 
 <!-- ===== MOBILE ===== -->
 <div class="mobile">
+
+<div class="main-design">
+
+  <img src="backflower.png" class="backflower flower1 left">
+  <img src="backflower.png" class="backflower flower1 right">
+
+  <img src="backflower2.png" class="backflower flower2 left">
+  <img src="backflower2.png" class="backflower flower2 right">
+
+  <img src="backflower3.png" class="backflower flower3 left">
+  <img src="backflower3.png" class="backflower flower3 right">
+
+  <img src="backflower4.png" class="backflower flower4 left">
+  <img src="backflower4.png" class="backflower flower4 right">
+
+  <img src="backflower5.png" class="backflower flower5 left">
+  <img src="backflower5.png" class="backflower flower5 right">
+
+  <img src="backflower6.png" class="backflower flower6 left">
+  <img src="backflower6.png" class="backflower flower6 right">
+
+  <img src="backflower7.png" class="backflower flower7">  
 
 <div class="falling-flowers">
   <img src="backflower.png">
