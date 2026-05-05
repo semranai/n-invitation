@@ -27,7 +27,8 @@
   width: 180px;
   cursor: pointer;
   z-index: 3;
-} 
+  animation: glow 2s infinite ease-in-out;
+}
 
 .click-flower {
   display: block;
@@ -167,6 +168,12 @@
   100% { transform: translateY(0); }
 }
 
+@keyframes glow {
+  0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,255,255,0.3)); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 12px rgba(255,255,255,0.7)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,255,255,0.3)); }
+}
+  
 /* ================= DESKTOP ================= */
 
 .desktop {
@@ -237,7 +244,8 @@
   width: 360px;
   margin:auto;
   z-index:5;
-  animation: float 4s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite, fadeIn 1.5s ease forwards;
+  opacity:0;
 }
 
 .card-img { width:100%; }
@@ -346,7 +354,8 @@ font-family: 'Allura', cursive;
   position: relative;
   width: 320px;
   margin-top: 210px;
-  animation: float 4s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite, fadeIn 1.5s ease forwards;
+  opacity:0;
 ">
 
   <img src="board.png" style="width:100%; display:block;">
@@ -354,6 +363,9 @@ font-family: 'Allura', cursive;
   <div style="
   position:absolute;
   top:55%;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 1s;
+  opacity:0;
   left:50%;
   transform:translate(-50%, -50%);
   text-align:center;
@@ -407,7 +419,7 @@ font-family: 'Allura', cursive;
 <!-- ===== DESKTOP ===== -->
 <div class="desktop">
 
-<div class="falling-flowers">
+<div class="falling-flowers" id="petals" style="display:none;">
   <img src="backflower.png">
   <img src="backflower2.png">
   <img src="backflower7.png">
@@ -507,8 +519,12 @@ function playFlower(e) {
   flower.src = "clickflower.gif";
 
   setTimeout(() => {
-    enterSite();
-  }, 2600);
+  document.getElementById("petals").style.display = "block";
+}, 800);
+
+setTimeout(() => {
+  enterSite();
+}, 2600);
 }
 
   
@@ -523,6 +539,7 @@ else greeting = "Good Evening";
 
 /* Smooth enter */
 function enterSite() {
+
   const intro = document.querySelector(".intro");
   const main = document.getElementById("mainSite");
 
