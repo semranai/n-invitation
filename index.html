@@ -117,7 +117,19 @@
   z-index: 0;
 }
   
+.card-container {
+  position: relative;
+}
 
+.text {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  text-align: center;
+  color: white;
+}
 /* Mobile intro background */
 @media (max-width: 600px) {
   .intro {
@@ -241,6 +253,7 @@
 /* CARD */
 @media (max-width: 768px) {
   .card-container {
+    position: relative;
     width: 85vw;
     max-width: 300px;
   }
@@ -249,18 +262,16 @@
 .card-img { width:100%; }
 
 /* TEXT */
-@media (max-width: 768px) {
-
-  .card-container {
-    width: 85vw;
-    max-width: 300px;
-  }
 
   .text {
-    top: 15%;
-    left: 10%;
-    width: 80%;
-  }
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  text-align: center;
+  color: white;
+}
 
 }
 /* HIDE MOBILE ON DESKTOP */
