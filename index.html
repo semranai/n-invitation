@@ -589,15 +589,21 @@ View Location
 
 <div class="details-flower-wrap">
 
-<div class="circle-text" id="circleText"></div>
+  <div class="circle-text" id="circleText"></div>
 
   <img src="clickflower.png"
        class="details-flower"
        onclick="openDetails()">
 
 </div>
+
+</div>
+
   
 <!-- ===== MOBILE ===== -->
+
+
+  
 <div class="mobile">
 
 <div class="main-design">
@@ -667,7 +673,8 @@ View Location
        onclick="openDetails()">
 
 </div>  
-  
+
+</div>  
 <script>
 
 function playFlower(e) {
@@ -765,13 +772,11 @@ text.split("").forEach((char, i) => {
   span.innerText = char;
 
   span.style.transform =
-    `rotate(${i * 9}deg) translateY(-34px)`;
+    `rotate(${i * 9}deg) translateY(-26px)`;
 
   circle.appendChild(span);
 
 });
-
-
 const text2 = "✦ CLICK TO VIEW MORE DETAILS ✦ ";
 const circle2 = document.getElementById("circleText2");
 
@@ -782,7 +787,7 @@ text2.split("").forEach((char, i) => {
   span.innerText = char;
 
   span.style.transform =
-    `rotate(${i * 9}deg) translateY(-34px)`;
+    `rotate(${i * 9}deg) translateY(-26px)`;
 
   circle2.appendChild(span);
 
