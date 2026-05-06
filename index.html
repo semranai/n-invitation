@@ -312,9 +312,7 @@
     display: none;
   }
 
-  .desktop > .details-flower-wrap {
-    display: none;
-  }
+
   
  .mobile {
   display: flex;
@@ -440,13 +438,39 @@
 
   transform-origin: 0 38px;
 }
+
+
+.desktop-details-flower {
+  display: flex;
+}
+
+.mobile-details-flower {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-details-flower {
+    display: none;
+  }
+
+  .mobile-details-flower {
+    display: flex;
+  }
+}
+
   
 body {
   overflow-x: hidden;
+
+
+  
 }
   
 </style>
 </head>
+
+
+  
 
 <body>
 
@@ -587,7 +611,8 @@ View Location
 </div>
 </div>
 
-<div class="details-flower-wrap">
+
+<div class="details-flower-wrap desktop-details-flower">
 
   <div class="circle-text" id="circleText"></div>
 
@@ -664,8 +689,7 @@ View Location
 
 </div>
 
-<div class="details-flower-wrap">
-
+<div class="details-flower-wrap mobile-details-flower">
   <div class="circle-text" id="circleText2"></div>
 
   <img src="clickflower.png"
