@@ -184,16 +184,7 @@
   100% { transform: translateY(0); }
 }
   
-@keyframes rotateText {
-  from {
-    transform: rotate(0deg);
-  }
 
-  to {
-    transform: rotate(360deg);
-  }
-}
-  
 @keyframes glow {
   0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,255,255,0.3)); }
   50% { transform: scale(1.05); filter: drop-shadow(0 0 12px rgba(255,255,255,0.7)); }
@@ -386,78 +377,6 @@
   font-size: 30px;
   line-height: 1.1;
 }
-
-.details-flower-wrap {
-  position: relative;
-  width: 90px;
-  height: 90px;
-
-  margin: 25px auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  z-index: 10;
-}
-
-.details-flower {
-  width: 42px;
-  cursor: pointer;
-
-  animation: glow 2s infinite ease-in-out,
-             float 4s ease-in-out infinite;
-
-  z-index: 2;
-}
-.circle-text {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-
-  border-radius: 50%;
-
-  animation: rotateText 20s linear infinite;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 8px;
-  color: #f7d98c;
-  font-family: 'Poppins';
-
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.circle-text span {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-
-  transform-origin: 0 38px;
-}
-
-
-.desktop-details-flower {
-  display: flex;
-}
-
-.mobile-details-flower {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .desktop-details-flower {
-    display: none;
-  }
-
-  .mobile-details-flower {
-    display: flex;
-  }
-}
-
   
 body {
   overflow-x: hidden;
@@ -612,16 +531,6 @@ View Location
 </div>
 
 
-<div class="details-flower-wrap desktop-details-flower">
-
-  <div class="circle-text" id="circleText"></div>
-
-  <img src="clickflower.png"
-       class="details-flower"
-       onclick="openDetails()">
-
-</div>
-
 </div>
 
   
@@ -689,15 +598,6 @@ View Location
 
 </div>
 
-<div class="details-flower-wrap mobile-details-flower">
-  <div class="circle-text" id="circleText2"></div>
-
-  <img src="clickflower.png"
-       class="details-flower"
-       onclick="openDetails()">
-
-</div>  
-
 </div>  
 <script>
 
@@ -761,70 +661,36 @@ setInterval(() => {
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   document.querySelectorAll(".countdown").forEach(el => {
-    el.innerHTML = `
-      <div class="count-box">
-        <div>${days}</div>
-        <span>Days</span>
-      </div>
 
-      <div class="count-box">
-        <div>${hours}</div>
-        <span>Hours</span>
-      </div>
+  el.innerHTML = `
+    <div class="count-box">
+      <div>${days}</div>
+      <span>Days</span>
+    </div>
 
-      <div class="count-box">
-        <div>${minutes}</div>
-        <span>Minutes</span>
-      </div>
+    <div class="count-box">
+      <div>${hours}</div>
+      <span>Hours</span>
+    </div>
 
-      <div class="count-box">
-        <div>${seconds}</div>
-        <span>Seconds</span>
-      </div>
-    `;
+    <div class="count-box">
+      <div>${minutes}</div>
+      <span>Minutes</span>
+    </div>
+
+    <div class="count-box">
+      <div>${seconds}</div>
+      <span>Seconds</span>
+    </div>
+  `;
+
+
   });
 
 }, 1000);
 
-const text = "✦ CLICK TO VIEW MORE DETAILS ✦ ";
-const circle = document.getElementById("circleText");
 
-text.split("").forEach((char, i) => {
 
-  const span = document.createElement("span");
-
-  span.innerText = char;
-
-  span.style.transform =
-    `rotate(${i * 9}deg) translateY(-26px)`;
-
-  circle.appendChild(span);
-
-});
-const text2 = "✦ CLICK TO VIEW MORE DETAILS ✦ ";
-const circle2 = document.getElementById("circleText2");
-
-text2.split("").forEach((char, i) => {
-
-  const span = document.createElement("span");
-
-  span.innerText = char;
-
-  span.style.transform =
-    `rotate(${i * 9}deg) translateY(-26px)`;
-
-  circle2.appendChild(span);
-
-});
-function openDetails() {
-
-  document.querySelectorAll(".details-flower").forEach(flower => {
-
-    flower.src = "clickflower.gif";
-
-  });
-
-}
 </script>
   
 
