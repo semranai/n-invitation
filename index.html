@@ -183,7 +183,17 @@
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
+  
+@keyframes rotateText {
+  from {
+    transform: rotate(0deg);
+  }
 
+  to {
+    transform: rotate(360deg);
+  }
+}
+  
 @keyframes glow {
   0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,255,255,0.3)); }
   50% { transform: scale(1.05); filter: drop-shadow(0 0 12px rgba(255,255,255,0.7)); }
@@ -375,7 +385,57 @@
   line-height: 1.1;
 }
 
+.details-flower-wrap {
+  position: relative;
+  width: 130px;
+  height: 130px;
 
+  margin: 25px auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 10;
+}
+
+.details-flower {
+  width: 58px;
+  cursor: pointer;
+
+  animation: glow 2s infinite ease-in-out,
+             float 4s ease-in-out infinite;
+
+  z-index: 2;
+}
+.circle-text {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+
+  border-radius: 50%;
+
+  animation: rotateText 20s linear infinite;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 8px;
+  color: #f7d98c;
+  font-family: 'Poppins';
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.circle-text span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform-origin: 0 55px;
+}
   
 body {
   overflow-x: hidden;
@@ -523,6 +583,16 @@ View Location
 </div>
 </div>
 
+<div class="details-flower-wrap">
+
+<div class="circle-text" id="circleText"></div>
+
+  <img src="clickflower.png"
+       class="details-flower"
+       onclick="openDetails()">
+
+</div>
+  
 <!-- ===== MOBILE ===== -->
 <div class="mobile">
 
@@ -584,6 +654,16 @@ View Location
 
 </div>
 
+<div class="details-flower-wrap">
+
+  <div class="circle-text" id="circleText2"></div>
+
+  <img src="clickflower.png"
+       class="details-flower"
+       onclick="openDetails()">
+
+</div>  
+  
 <script>
 
 function playFlower(e) {
@@ -670,7 +750,48 @@ setInterval(() => {
   });
 
 }, 1000);
-  
+
+const text = "✦ CLICK TO VIEW MORE DETAILS ✦ ";
+const circle = document.getElementById("circleText");
+
+text.split("").forEach((char, i) => {
+
+  const span = document.createElement("span");
+
+  span.innerText = char;
+
+  span.style.transform =
+    `rotate(${i * 9}deg) translateY(-55px)`;
+
+  circle.appendChild(span);
+
+});
+
+
+const text2 = "✦ CLICK TO VIEW MORE DETAILS ✦ ";
+const circle2 = document.getElementById("circleText2");
+
+text2.split("").forEach((char, i) => {
+
+  const span = document.createElement("span");
+
+  span.innerText = char;
+
+  span.style.transform =
+    `rotate(${i * 9}deg) translateY(-55px)`;
+
+  circle2.appendChild(span);
+
+});
+function openDetails() {
+
+  document.querySelectorAll(".details-flower").forEach(flower => {
+
+    flower.src = "clickflower.gif";
+
+  });
+
+}
 </script>
   
 
