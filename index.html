@@ -312,6 +312,10 @@
     display: none;
   }
 
+  .desktop > .details-flower-wrap {
+    display: none;
+  }
+  
  .mobile {
   display: flex;
   align-items: center;
@@ -387,8 +391,8 @@
 
 .details-flower-wrap {
   position: relative;
-  width: 130px;
-  height: 130px;
+  width: 90px;
+  height: 90px;
 
   margin: 25px auto;
 
@@ -400,7 +404,7 @@
 }
 
 .details-flower {
-  width: 58px;
+  width: 42px;
   cursor: pointer;
 
   animation: glow 2s infinite ease-in-out,
@@ -410,8 +414,8 @@
 }
 .circle-text {
   position: absolute;
-  width: 130px;
-  height: 130px;
+  width: 90px;
+  height: 90px;
 
   border-radius: 50%;
 
@@ -434,7 +438,7 @@
   left: 50%;
   top: 50%;
 
-  transform-origin: 0 55px;
+  transform-origin: 0 38px;
 }
   
 body {
@@ -761,7 +765,7 @@ text.split("").forEach((char, i) => {
   span.innerText = char;
 
   span.style.transform =
-    `rotate(${i * 9}deg) translateY(-55px)`;
+    `rotate(${i * 9}deg) translateY(-34px)`;
 
   circle.appendChild(span);
 
@@ -778,7 +782,7 @@ text2.split("").forEach((char, i) => {
   span.innerText = char;
 
   span.style.transform =
-    `rotate(${i * 9}deg) translateY(-55px)`;
+    `rotate(${i * 9}deg) translateY(-34px)`;
 
   circle2.appendChild(span);
 
